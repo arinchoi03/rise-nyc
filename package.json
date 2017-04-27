@@ -1,5 +1,5 @@
 {
-  "name": "__BONES_NEEDS_A_NAME__",
+  "name": "rise-nyc",
   "version": "0.0.1",
   "description": "A happy little burning skeleton.",
   "main": "index.js",
@@ -53,6 +53,7 @@
     "express": "^4.14.0",
     "finalhandler": "^1.0.0",
     "firebase": "^3.9.0",
+    "firebase-functions": "^0.5.5",
     "homedir": "^0.6.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
