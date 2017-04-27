@@ -9,7 +9,7 @@ import NotFound from './components/NotFound'
 import firebase from 'APP/fire'
 
 // -- // Demo components // -- //
-import Scratchpad from 'APP/demos/scratchpad'
+import Scratchpad from 'APP/app/Scratchpad'
 
 // Get the auth API from Firebase.
 const auth = firebase.auth()

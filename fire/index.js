@@ -2,12 +2,12 @@ const firebase = require('firebase')
 
 // -- // -- // -- // Firebase Config // -- // -- // -- //
 const config = {
-    apiKey: "AIzaSyCkfy8dbfalyR_jxhphSEbM8LbOPC3OO4k",
-    authDomain: "rise-nyc.firebaseapp.com",
-    databaseURL: "https://rise-nyc.firebaseio.com",
-    projectId: "rise-nyc",
-    storageBucket: "rise-nyc.appspot.com",
-    messagingSenderId: "909725966302"
+  apiKey: 'AIzaSyCkfy8dbfalyR_jxhphSEbM8LbOPC3OO4k',
+  authDomain: 'rise-nyc.firebaseapp.com',
+  databaseURL: 'https://rise-nyc.firebaseio.com',
+  projectId: 'rise-nyc',
+  storageBucket: 'rise-nyc.appspot.com',
+  messagingSenderId: '909725966302'
 }
 // -- // -- // -- // -- // -- // -- // -- // -- // -- //
 
