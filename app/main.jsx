@@ -8,12 +8,13 @@ import NotFound from './components/NotFound'
 
 import firebase from 'APP/fire'
 
-import ExApp from './components/App'
 // -- // Demo components // -- //
-import Scratchpad from './components/Scratchpad'
+// import Scratchpad from './components/Scratchpad'
+import Stations from './components/Stations'
 
 // Get the auth API from Firebase.
 const auth = firebase.auth()
+const db = firebase.database()
 
 // Ensure that we have (almost) always have a user ID, by creating
 // an anonymous user if nobody is signed in.
@@ -56,8 +57,8 @@ const App = ({children}) =>
 render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRedirect to="scratchpad/welcome"/>
-      <Route path="scratchpad/:title" component={Scratchpad}/>
+      <IndexRedirect to="/stations"/>
+      <Route path="/stations" component={Stations} fireRef={db.ref('Stations/station1')}/>
     </Route>
     <Route path='*' component={NotFound}/>
   </Router>,

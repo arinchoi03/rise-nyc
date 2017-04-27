@@ -44,11 +44,7 @@ export default class extends React.Component {
     console.log('what is the fireref?', this.props.fireRef)
     const {value} = this.state || {}
     return (
-      <textarea
-        rows={10}
-        cols={120}
-        value={value}
-        onChange={this.write}/>
+      <div>{this.state.value}</div>
     )
   }
 }
