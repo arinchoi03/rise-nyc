@@ -6,7 +6,6 @@
 // // import Scratchpad from './Scratchpad'
 // import Stations from './Stations'
 
-
 // // This component is a little piece of glue between React router
 // // and our Scratchpad component. It takes in props.params.title, and
 // // shows the Scratchpad along with that title.
