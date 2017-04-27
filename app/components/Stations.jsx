@@ -10,7 +10,6 @@ export default class extends React.Component {
   componentDidMount() {
     // When the component mounts, start listening to the fireRef
     // we were given.
-    console.log('props.fireRef', this.props.fireRef)
     this.listenTo(this.props.fireRef)
   }
 
@@ -28,15 +27,10 @@ export default class extends React.Component {
   listenTo(fireRef) {
     // If we're already listening to a ref, stop listening there.
     if (this.unsubscribe) this.unsubscribe()
-    console.log('am i in listento?', fireRef)
     // Whenever our ref's value changes, set {value} on our state.
-    console.log('fireRef children', fireRef.child('station1').child('name'))
     const listener = fireRef.child('station1').child('name').on('value', snapshot => {
-      console.log('snapshot value', fireRef.child('station1').child('name'))
       this.setState({value: snapshot.val()})
     })
-    fireRef.child('station1').child('name').set('MurrayHill')
-    // Set unsubscribe to be a function that detaches the listener.
     this.unsubscribe = () => fireRef.off('value', listener)
   }
 
@@ -52,10 +46,9 @@ export default class extends React.Component {
 
   render() {
     const {value} = this.state || {}
-    console.log('value from local', this.state.value)
+    console.log('station name from local', this.state.value)
     return (<div>
-      <h1>Hi</h1>
-      <p>{value}</p>
+      <h1>{value}</h1>
     </div>
     )
   }
