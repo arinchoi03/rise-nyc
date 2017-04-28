@@ -10,6 +10,8 @@ import firebase from 'APP/fire'
 
 // -- // Demo components // -- //
 import Scratchpad from 'APP/demos/scratchpad'
+import Demos from 'APP/demos'
+
 import Stations from './components/Stations'
 import Station from './components/Station'
 
