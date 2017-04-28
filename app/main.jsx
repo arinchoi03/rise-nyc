@@ -1,6 +1,6 @@
 'use strict'
 import React from 'react'
-import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
+import {Link, Router, Route, IndexRedirect, browserHistory} from 'react-router'
 import {render} from 'react-dom'
 
 import WhoAmI from './components/WhoAmI'
@@ -58,7 +58,7 @@ const App = ({children}) =>
           on if anyone's logged in */}
       <WhoAmI auth={auth}/>
     </nav>
-    <h1 className="title">Rise NYC</h1>
+    <h1 className="title"><Link to="/">Rise NYC</Link></h1>
     {/* Render our children (whatever the router gives us) */}
     {children && React.cloneElement(children, {fireRef})}
   </div>

@@ -52,9 +52,10 @@ export default class extends React.Component {
     const result = []
     for (var i in stations) {
       const current = stations[i]
+      const nameURL = current.name.trim()
       result.push(<tr key={i}>
                       <td>
-                        <Link to={`/stations/current.name`}>
+                        <Link to={`/stations/${nameURL}`}>
                           {current.name}
                         </Link>
                     </td>
@@ -86,6 +87,8 @@ export default class extends React.Component {
                    {this.generateStations(this.state.value)}
                   </tbody>
                 </table>
+                <form><p>this will allow people to update status</p>
+                </form>
               </div>
             </div>
     )

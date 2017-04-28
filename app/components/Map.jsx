@@ -3,7 +3,6 @@
 // import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 // import withScriptjs from "react-google-maps/lib/async/withScriptjs";
 
-
 // // Wrap all `react-google-maps` components with `withGoogleMap` HOC
 // // and name it GettingStartedGoogleMap
 // // Wrap all `react-google-maps` components with `withGoogleMap` HOC
