@@ -12,7 +12,7 @@ export default class extends React.Component {
   componentDidMount() {
     // When the component mounts, start listening to the fireRef
     // we were given.
-    console.log('props in station', this.props.routeParams.name)
+    // console.log('auth in station', this.props.auth.currentUser.uid.slice(0, 4))
     this.listenTo(this.props.fireRef)
   }
 
@@ -56,7 +56,7 @@ export default class extends React.Component {
       result.push(<tr key={i}>
                       <td>
                         <Link to={`/stations/${nameURL}`}>
-                          {current.name}
+                          {/**/}
                         </Link>
                     </td>
                     <td>{current.status}</td>
@@ -88,6 +88,8 @@ export default class extends React.Component {
                   </tbody>
                 </table>
                 <form><p>this will allow people to update status</p>
+                <button>Good</button>
+                <button>Bad</button>
                 </form>
               </div>
             </div>

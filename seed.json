@@ -1,5 +1,6 @@
 {
   "14th St" : {
+    "id" : 1,
     "location" : {
       "lat" : 40.7423877,
       "lng" : -73.9969021
@@ -9,6 +10,7 @@
     "subways" : "A, C, E, L"
   },
   "14th St (Union Sq)" : {
+    "id" : 2,
     "location" : {
       "lat" : 40.7359002,
       "lng" : -73.9911824
@@ -18,6 +20,7 @@
     "subways" : "L, N, Q, R, W"
   },
   "23rd St" : {
+    "id" : 3,
     "location" : {
       "lat" : 40.7411514,
       "lng" : -73.986502
@@ -27,6 +30,7 @@
     "subways" : "6"
   },
   "34th St-Herald Square" : {
+    "id" : 4,
     "location" : {
       "lat" : 40.7411511,
       "lng" : -73.9940372
@@ -36,6 +40,7 @@
     "subways" : "B, D, F, M, N, Q, R, W"
   },
   "34th St-Penn Station (1,2,3)" : {
+    "id" : 5,
     "location" : {
       "lat" : 40.7513831,
       "lng" : -73.9929554
@@ -45,6 +50,7 @@
     "subways" : "1,2,3"
   },
   "34th St-Penn Station (A,C,E)" : {
+    "id" : 6,
     "location" : {
       "lat" : 40.7513831,
       "lng" : -73.9929554
@@ -54,6 +60,7 @@
     "subways" : "A,C,E"
   },
     "34th-Hudson Yards" : {
+    "id" : 7,
     "location" : {
       "lat" : 40.7549699,
       "lng" : -74.0031945
@@ -63,6 +70,7 @@
     "subways" : "7"
   },
     "42 St-Port Authority Bus Terminal" : {
+    "id" : 8,
     "location" : {
       "lat" : 40.7571517,
       "lng" : -73.9930103
@@ -72,6 +80,7 @@
     "subways" : "A,C,E"
   },
     "Bowling Green" : {
+    "id" : 9,
     "location" : {
       "lat" : 40.704926,
       "lng" : -74.0158645
@@ -81,6 +90,7 @@
     "subways" : "4,5"
   },
     "Broadway-Lafayette St & Bleeker St" : {
+    "id" : 10,
     "location" : {
       "lat" : 40.725323,
       "lng" : -73.9976875
@@ -90,6 +100,7 @@
     "subways" : "6,B,D,F,M"
   },
     "Brooklyn Bridge-City Hall" : {
+    "id" : 11,
     "location" : {
       "lat" : 40.712769,
       "lng" : -74.0070822

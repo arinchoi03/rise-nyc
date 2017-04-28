@@ -16,22 +16,27 @@ h2.lead {
 }
 
 .googleMap {
-  height: 600px;
-  width: 600px;
+  height: 400px;
+  width: 400px;
+  display: inline-block;
+  padding: 10px;
 }
 
 iframe {
-  height: 100%;
-  width: 100%;
+  height: 50vw;
+  width: 50vw;
 }
 
 .stationList {
+  padding: 10px;
   width: 100%;
+  display: inline-block;
 }
 
 th, td {
-  width: 100px;
-  height: 30px;
+  width: 50%;
+  height: 40px;
+  text-align: center;
 }
 
 .nearbyElevators {

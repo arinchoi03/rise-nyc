@@ -1,0 +1,123 @@
+{
+  "14th St" : {
+    "id" : 1,
+    "issues" : {
+      "1": {
+        "status": "Bad"
+      },
+      "2": {
+        "status": "Good"
+      }
+    }
+  },
+  "14th St (Union Sq)" : {
+    "id" : 2,
+    "issues" : {
+      "1": {
+        "status": "Bad"
+      },
+      "2": {
+        "status": "Good"
+      }
+    }
+  },
+  "23rd St" : {
+    "id" : 3,
+    "issues" : {
+      "1": {
+        "status": "Bad"
+      },
+      "2": {
+        "status": "Good"
+      }
+    }
+  },
+  "34th St-Herald Square" : {
+    "id" : 4,
+    "issues" : {
+      "1": {
+        "status": "Bad"
+      },
+      "2": {
+        "status": "Good"
+      }
+    }
+  },
+  "34th St-Penn Station (1,2,3)" : {
+    "id" : 5,
+    "issues" : {
+      "1": {
+        "status": "Bad"
+      },
+      "2": {
+        "status": "Good"
+      }
+    }
+  },
+  "34th St-Penn Station (A,C,E)" : {
+    "id" : 6,
+    "issues" : {
+      "1": {
+        "status": "Bad"
+      },
+      "2": {
+        "status": "Good"
+      }
+    }
+  },
+    "34th-Hudson Yards" : {
+    "id" : 7,
+    "issues" : {
+      "1": {
+        "status": "Bad"
+      },
+      "2": {
+        "status": "Good"
+      }
+    }
+  },
+    "42 St-Port Authority Bus Terminal" : {
+    "id" : 8,
+    "issues" : {
+      "1": {
+        "status": "Bad"
+      },
+      "2": {
+        "status": "Good"
+      }
+    }
+  },
+    "Bowling Green" : {
+    "id" : 9,
+    "issues" : {
+      "1": {
+        "status": "Bad"
+      },
+      "2": {
+        "status": "Good"
+      }
+    }
+  },
+    "Broadway-Lafayette St & Bleeker St" : {
+    "id" : 10,
+    "issues" : {
+      "1": {
+        "status": "Bad"
+      },
+      "2": {
+        "status": "Good"
+      }
+    }
+  },
+    "Brooklyn Bridge-City Hall" : {
+    "id" : 11,
+    "issues" : {
+      "1": {
+        "status": "Bad"
+      },
+      "2": {
+        "status": "Good"
+      }
+    }
+  }
+}

@@ -20,9 +20,11 @@ const seed = require('../seed')
 // Get the auth API from Firebase.
 const auth = firebase.auth()
 const db = firebase.database()
-// const fireRef = db.ref('stations').set(seed)  TO SEED
 const fireRef = db.ref('stations')
 const issueRef = db.ref('issues')
+
+// to seed
+// const fireRef = db.ref('stations').set(seed)
 
 // Ensure that we have (almost) always have a user ID, by creating
 // an anonymous user if nobody is signed in.
@@ -60,16 +62,16 @@ const App = ({children}) =>
     </nav>
     <h1 className="title"><Link to="/">Rise NYC</Link></h1>
     {/* Render our children (whatever the router gives us) */}
-    {children && React.cloneElement(children, {fireRef})}
+    {children && React.cloneElement(children, {fireRef, issueRef})}
   </div>
 
 render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRedirect to="/Stations"/>
+      <IndexRedirect to="/stations"/>
       <Route path="Home"/>
-      <Route path="/Stations" component={Stations}/>
-      <Route path="/Stations/:name" component={Station}/>
+      <Route path="/stations" component={Stations}/>
+      <Route path="/stations/:id" component={Station}/>
     </Route>
     <Route path='*' component={NotFound}/>
   </Router>,
