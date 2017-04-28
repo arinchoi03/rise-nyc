@@ -1,0 +1,34 @@
+.stationInfo {
+  width: 45vw;
+}
+
+.title {
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Arvo';
+  text-decoration: underline;
+}
+
+h2.lead {
+  text-decoration: underline;
+}
+
+.googleMap {
+  height: 400px;
+  width: 400px;
+}
+
+.stationList {
+  width: 100%;
+}
+
+th, td {
+  width: 100px;
+  height: 30px;
+}
+
+.nearbyElevators {
+  padding-bottom: 40px;
+}

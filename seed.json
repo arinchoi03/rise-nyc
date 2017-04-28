@@ -1,0 +1,101 @@
+{
+  "14th St" : {
+    "location" : {
+      "lat" : 40.7423877,
+      "lng" : -73.9969021
+    },
+    "name" : "14th St & 8th",
+    "status" : "Good",
+    "subways" : "A, C, E, L"
+  },
+  "14th St (Union Sq)" : {
+    "location" : {
+      "lat" : 40.7359002,
+      "lng" : -73.9911824
+    },
+    "name" : "14th St (Union Sq)",
+    "status" : "Good",
+    "subways" : "L, N, Q, R, W"
+  },
+  "23rd St" : {
+    "location" : {
+      "lat" : 40.7411514,
+      "lng" : -73.986502
+    },
+    "name" : "23rd St",
+    "status" : "Good",
+    "subways" : "6"
+  },
+  "34th St-Herald Square" : {
+    "location" : {
+      "lat" : 40.7411511,
+      "lng" : -73.9940372
+    },
+    "name" : "34th St-Herald Square",
+    "status" : "Good",
+    "subways" : "B, D, F, M, N, Q, R, W"
+  },
+  "34th St-Penn Station (1,2,3)" : {
+    "location" : {
+      "lat" : 40.7513831,
+      "lng" : -73.9929554
+    },
+    "name" : "34th St-Penn Station (1,2,3)",
+    "status" : "Bad",
+    "subways" : "1,2,3"
+  },
+  "34th St-Penn Station (A,C,E)" : {
+    "location" : {
+      "lat" : 40.7513831,
+      "lng" : -73.9929554
+    },
+    "name" : "34th St-Penn Station (A,C,E)",
+    "status" : "Bad",
+    "subways" : "A,C,E"
+  },
+    "34th-Hudson Yards" : {
+    "location" : {
+      "lat" : 40.7549699,
+      "lng" : -74.0031945
+    },
+    "name" : "34th St-Hudson Yards",
+    "status" : "Bad",
+    "subways" : "7"
+  },
+    "42 St-Port Authority Bus Terminal" : {
+    "location" : {
+      "lat" : 40.7571517,
+      "lng" : -73.9930103
+    },
+    "name" : "42 St-Port Authority Bus Terminal",
+    "status" : "Good",
+    "subways" : "A,C,E"
+  },
+    "Bowling Green" : {
+    "location" : {
+      "lat" : 40.704926,
+      "lng" : -74.0158645
+    },
+    "name" : "Bowling Green",
+    "status" : "Good",
+    "subways" : "4,5"
+  },
+    "Broadway-Lafayette St & Bleeker St" : {
+    "location" : {
+      "lat" : 40.725323,
+      "lng" : -73.9976875
+    },
+    "name" : "Broadway-Lafayette St & Bleeker St",
+    "status" : "Good",
+    "subways" : "6,B,D,F,M"
+  },
+    "Brooklyn Bridge-City Hall" : {
+    "location" : {
+      "lat" : 40.712769,
+      "lng" : -74.0070822
+    },
+    "name" : "Brooklyn Bridge-City Hall",
+    "status" : "Good",
+    "subways" : "4,5,6"
+  }
+}

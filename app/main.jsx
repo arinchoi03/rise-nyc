@@ -11,11 +11,16 @@ import firebase from 'APP/fire'
 // -- // Demo components // -- //
 import Scratchpad from 'APP/demos/scratchpad'
 import Stations from './components/Stations'
+import Station from './components/Station'
+
+const seed = require('../seed')
 
 // Get the auth API from Firebase.
 const auth = firebase.auth()
 const db = firebase.database()
-const fireRef = db.ref('Stations')
+// const fireRef = db.ref('stations').set(seed)  TO SEED
+const fireRef = db.ref('stations')
+const issueRef = db.ref('issues')
 
 // Ensure that we have (almost) always have a user ID, by creating
 // an anonymous user if nobody is signed in.
@@ -45,13 +50,13 @@ auth.onAuthStateChanged(user => user || auth.signInAnonymously())
 // and whatever children the router gave us.
 const App = ({children}) =>
   <div>
-    <nav>
+    <nav className="nav">
       {/* WhoAmI takes a firebase auth API and renders either a
           greeting and a logout button, or sign in buttons, depending
           on if anyone's logged in */}
       <WhoAmI auth={auth}/>
     </nav>
-    <h1>Rise NYC</h1>
+    <h1 className="title">Rise NYC</h1>
     {/* Render our children (whatever the router gives us) */}
     {children && React.cloneElement(children, {fireRef})}
   </div>
@@ -60,8 +65,9 @@ render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRedirect to="/Stations"/>
+      <Route path="Home"/>
       <Route path="/Stations" component={Stations}/>
-      <Route path="/scratchpad/:title" component={Scratchpad}/>
+      <Route path="/Stations/:name" component={Station}/>
     </Route>
     <Route path='*' component={NotFound}/>
   </Router>,

@@ -12,7 +12,7 @@ export default class extends React.Component {
   componentDidMount() {
     // When the component mounts, start listening to the fireRef
     // we were given.
-    console.log('fireref', this.props.fireRef)
+    console.log('props in station', this.props.routeParams.name)
     this.listenTo(this.props.fireRef)
   }
 
@@ -32,7 +32,8 @@ export default class extends React.Component {
     // If we're already listening to a ref, stop listening there.
     if (this.unsubscribe) this.unsubscribe()
     // Whenever our ref's value changes, set {value} on our state.
-    const listener = fireRef.on('value', snapshot => {
+    const currentStation = this.props.routeParams.name
+    const listener = fireRef.child(currentStation).on('value', snapshot => {
       this.setState({value: snapshot.val()})
     })
     this.unsubscribe = () => fireRef.off('value', listener)
@@ -53,7 +54,7 @@ export default class extends React.Component {
       const current = stations[i]
       result.push(<tr key={i}>
                       <td>
-                        <Link to={`/stations/${current.name}`}>
+                        <Link to={`/stations/current.name`}>
                           {current.name}
                         </Link>
                     </td>
@@ -64,21 +65,21 @@ export default class extends React.Component {
   }
   render() {
     const {value} = this.state || {}
-    console.log('stations from local', this.state.value)
+    console.log('value from local state', this.state.value)
     return (<div className="stationsView">
               <h3 className="title nearbyElevators">Elevator Access Near You</h3>
               <div className="rounded stationMap col-md-6">
-                <h2 className="lead">Stations Map</h2>
-                <div className="googleMap">
+                <h2 className="lead">Station Photo</h2>
+                <div className="stationImage">
                 </div>
               </div>
               <div className="rounded stationInfo col-md-6">
-                <h2 className="lead">Stations List</h2>
+                <h2 className="lead">Issues Logged</h2>
                 <table className="table-bordered table-hover stationList">
                   <thead>
                     <tr>
-                      <th>Station</th>
-                      <th>Current Status</th>
+                      <th>Date Reported</th>
+                      <th>Status</th>
                     </tr>
                   </thead>
                   <tbody>
