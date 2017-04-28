@@ -69,7 +69,9 @@ export default class extends React.Component {
               <h3 className="title nearbyElevators">Elevator Access Near You</h3>
               <div className="rounded stationMap col-md-6">
                 <h2 className="lead">Stations Map</h2>
-                <div className="googleMap">
+                <div>
+                <iframe className="googleMap" src="https://www.google.com/maps/embed/v1/view?key=AIzaSyCdwbqBA0j9ZOuwa0GqvVXVgL7Mdbu0mHI&zoom=10&center=40.7128%2C-74.0059">
+                </iframe>
                 </div>
               </div>
               <div className="rounded stationInfo col-md-6">
