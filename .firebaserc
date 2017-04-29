@@ -1,6 +1,7 @@
 {
   "projects": {
     "firebones": "firebones-6bc2a",
-    "testing": "rise-nyc"
+    "testing": "rise-nyc",
+    "default": "rise-nyc"
   }
 }
