@@ -63,6 +63,7 @@ export default class extends React.Component {
                     <td>{current.status}</td>
                   </tr>)
     }
+    return result
   }
   generateMarkers(stations) {
     const markers = []
