@@ -12,6 +12,7 @@ import firebase from 'APP/fire'
 import Scratchpad from 'APP/demos/scratchpad'
 import Demos from 'APP/demos'
 
+import FrontPage from './components/FrontPage'
 import Stations from './components/Stations'
 import Station from './components/Station'
 
@@ -55,21 +56,21 @@ auth.onAuthStateChanged(user => user || auth.signInAnonymously())
 const App = ({children}) =>
   <div>
     <nav className="nav">
+    <h1 className="title"><Link to="/">RISE UP nyc</Link></h1>
       {/* WhoAmI takes a firebase auth API and renders either a
           greeting and a logout button, or sign in buttons, depending
           on if anyone's logged in */}
-      <WhoAmI auth={auth}/>
+      {/* <WhoAmI auth={auth}/> */}
     </nav>
-    <h1 className="title"><Link to="/">Rise NYC</Link></h1>
     {/* Render our children (whatever the router gives us) */}
     {children && React.cloneElement(children, {fireRef, issueRef})}
   </div>
 
 render(
   <Router history={browserHistory}>
+    <Route path="/home" component={FrontPage}/>
     <Route path="/" component={App}>
       <IndexRedirect to="/stations"/>
-      <Route path="Home"/>
       <Route path="/stations" component={Stations}/>
       <Route path="/stations/:id" component={Station}/>
     </Route>

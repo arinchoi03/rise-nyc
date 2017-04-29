@@ -2,13 +2,14 @@
   width: 45vw;
 }
 
-.title {
-  text-align: center;
+.nav {
+  background-color: powderblue
 }
 
 h1 {
   font-family: 'Arvo';
   text-decoration: underline;
+  margin-bottom: 0px;
 }
 
 h2.lead {

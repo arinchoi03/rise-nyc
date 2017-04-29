@@ -10,6 +10,7 @@ export default class extends React.Component {
       value: {}
     }
     this.generateStations = this.generateStations.bind(this)
+    this.generateMarkers = this.generateMarkers.bind(this)
   }
   componentDidMount() {
     // When the component mounts, start listening to the fireRef
@@ -62,10 +63,18 @@ export default class extends React.Component {
                     <td>{current.status}</td>
                   </tr>)
     }
-    return result
+  }
+  generateMarkers(stations) {
+    const markers = []
+    for (var i in stations) {
+      const current = stations[i]
+      markers.push(current.location)
+    }
+    return markers
   }
   render() {
     const {value} = this.state || {}
+    const markers = this.generateMarkers(value)
     console.log('stations from local', this.state.value)
     // for MapContainer - push in location objects into array to be received as markers
     return (<div className="stationsView">
@@ -73,7 +82,7 @@ export default class extends React.Component {
               <div className="rounded stationMap col-md-6">
                 <h2 className="lead">Stations Map</h2>
                 <div id="mapDiv">
-                  <MapContainer />
+                  <MapContainer markers={markers}/>
                 </div>
               </div>
               <div className="rounded stationInfo col-md-6">
