@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import firebase from 'APP/fire'
 
 import MapContainer from './MapContainer'
 
@@ -84,12 +85,15 @@ export default class extends React.Component {
     return result
   }
   generateIssues(returnObj) {
+    console.log('in returnObj', returnObj)
     if (!returnObj) {
       return []
     } else {
       const result = []
       for (var i in returnObj) {
-        result.push(returnObj[i].issue)
+        const currentObj = returnObj[i]
+        console.log('currentObj', currentObj)
+        result.push({issue: currentObj.issue, timestamp: currentObj.timestamp})
       }
       return result.reverse()
     }
@@ -100,7 +104,8 @@ export default class extends React.Component {
     const currentStationId = this.props.routeParams.id
     this.props.issueRef.push({
       issue: newIssue,
-      stationId: currentStationId
+      stationId: currentStationId,
+      timestamp: new Date().getTime()
     }) // should update currentStation status...
   }
   render() {
@@ -157,7 +162,7 @@ export default class extends React.Component {
                         <tbody>
                           {issues && issues.map((issue, idx) =>
                             <tr key={idx}>
-                              <td>Date</td>
+                              <td>{new Date(issue.timestamp).toString()}</td>
                               <td>{issue.toString() === 'true' ? 'Working' : 'Broken'}</td>
                             </tr>)
                           }
