@@ -14,21 +14,15 @@ export default class extends React.Component {
     }
     this.generateStation = this.generateStation.bind(this)
     this.generateMarkers = this.generateMarkers.bind(this)
+    this.generateIssues = this.generateIssues.bind(this)
     this.handleClick = this.handleClick.bind(this)
-    // this.makeIssuesLog = this.makeIssuesLog.bind(this)
   }
   componentDidMount() {
     // When the component mounts, start listening to the fireRef
     // we were given.
-    // console.log('auth in station', this.props.auth.currentUser.uid.slice(0, 4))
     this.listenTo(this.props.fireRef, this.props.issueRef)
   }
-  // componentWillMount() {
-  //   this.props.issueRef.on('child_added', snapshot => {
-  //     const response = snapshot.val()
-  //     this.updateLocalState(response)
-  //   })
-  // }
+
   componentWillUnmount() {
     // When we unmount, stop listening.
     this.unsubscribe()
@@ -58,16 +52,7 @@ export default class extends React.Component {
       issueRef.off('value', listenerIssue)
     }
   }
-
-  // Write is defined using the class property syntax.
-  // This is roughly equivalent to saying,
-  //
-  //    this.write = event => (etc...)
-  //
-  // in the constructor. Incidentally, this means that write
-  // is always bound to this.
-  // write = event => this.props.issueRef &&
-  //   this.props.issueRef.set(event.target.value)
+  // generates station info (name at this point)
   generateStation(station) {
     const result = []
     for (var i in station) {
@@ -76,6 +61,7 @@ export default class extends React.Component {
     }
     return result
   }
+  // generates marker for this station
   generateMarkers(station) {
     const result = []
     for (var i in station) {
@@ -85,34 +71,33 @@ export default class extends React.Component {
     return result
   }
   generateIssues(returnObj) {
+    // if no issues for this station, just return empty array
     if (!returnObj) {
       return []
     } else {
+      // for the returned object, push each issue into the array with timestamp
       const result = []
       for (var i in returnObj) {
         const currentObj = returnObj[i]
-        console.log('currentObj', currentObj)
         result.push({issue: currentObj.issue, timestamp: currentObj.timestamp})
       }
       return result.reverse()
     }
   }
   handleClick(e) {
+    // this updates current status on Stations page
     const newIssue = e.target.value
     const stationName = Object.keys(this.state.value)[0]
-    console.log('this.state.value', this.state.value)
-    console.log('stationName', stationName)
     this.props.fireRef.child(stationName).update({
       status: newIssue
     })
-    // const currentStatus = this.state.value[stationName].status
-    // this.setState({stationName: ...e.target.value})
+    // this saves the new issue to the array of issues on Station page
     const currentStationId = this.props.routeParams.id
     this.props.issueRef.push({
       issue: newIssue,
       stationId: currentStationId,
       timestamp: new Date().getTime()
-    }) // should update currentStation status...
+    })
   }
   render() {
     const {value} = this.state || {}
@@ -166,11 +151,12 @@ export default class extends React.Component {
                           </tr>
                         </thead>
                         <tbody>
-                          {issues && issues.map((issue, idx) =>
+                          {issues && issues.map((issue, idx) => (
                             <tr key={idx}>
                               <td>{new Date(issue.timestamp).toString()}</td>
-                              <td>{issue.issue.toString() === 'true' ? 'Working' : 'Broken'}</td>
+                              <td>{issue.issue === 'true' ? 'Working' : 'Broken'}</td>
                             </tr>)
+                            )
                           }
                         </tbody>
                       </table>
