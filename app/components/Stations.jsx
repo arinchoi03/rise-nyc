@@ -37,6 +37,7 @@ export default class extends React.Component {
     if (this.unsubscribe) this.unsubscribe()
     // Whenever our ref's value changes, set {value} on our state.
     const listener = fireRef.on('value', snapshot => {
+      console.log('here?')
       this.setState({value: snapshot.val()})
     })
     this.unsubscribe = () => fireRef.off('value', listener)
@@ -49,8 +50,8 @@ export default class extends React.Component {
   //
   // in the constructor. Incidentally, this means that write
   // is always bound to this.
-  write = event => this.props.fireRef &&
-    this.props.fireRef.set(event.target.value)
+  // write = event => this.props.fireRef &&
+  //   this.props.fireRef.set(event.target.value)
   generateStations(stations) {
     const result = []
     for (var i in stations) {

@@ -1,7 +1,7 @@
 module.exports = {
   extends: "eslint-config-standard",
   root: true,
-  parser: "babel-eslint",
+  parser: "",
   parserOptions: {
     sourceType: "module",
     ecmaVersion: 8
