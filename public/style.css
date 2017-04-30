@@ -28,15 +28,12 @@ h2.lead {
   float: right;
 }
 
-
-/*
-.stationList {
-  padding: 10px;
-  width: 100%;
-  display: inline-block;
-}*/
-
 table {
+  width: 100%;
+  font-size: 20px;
+}
+
+thead, tbody {
   width: 100%;
 }
 

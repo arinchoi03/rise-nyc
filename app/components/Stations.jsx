@@ -95,19 +95,6 @@ export default class extends React.Component {
     return (<div className="container">
             <div className="stationsView row">
               <h3 className="title nearbyElevators">Elevator Access Near You</h3>
-                <div>
-                  <div className="input-group front-page-input">
-                    <input type="text" className="form-control" placeholder="Enter Address for Nearby Elevator Access" />
-                    <span className="input-group-btn">
-                      <button className="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
-                <div id="current-location-search">Current Location
-                  <button className="btn btn-default" onClick={this.captureGeo}>
-                    <span className="glyphicon glyphicon-search"></span>
-                  </button>
-                </div>
               <div className="rounded stationMap col-lg-6">
                 <div className ="panel panel-default">
                   <div className="panel-heading">
@@ -115,6 +102,24 @@ export default class extends React.Component {
                   </div>
                   <div className="panel-body">
                     <MapContainer currentPos={currentPos} markers={markers}/>
+                  </div>
+                </div>
+                <div className="panel panel-default">
+                  <div className="panel-heading">
+                    Search New Location
+                  </div>
+                  <div className="panel-body">
+                    <div className="input-group front-page-input">
+                      <input type="text" className="form-control" placeholder="Enter Address for Nearby Elevator Access" />
+                      <span className="input-group-btn">
+                        <button className="btn btn-default" type="button">Go!</button>
+                      </span>
+                    </div>
+                    <div id="current-location-search">Current Location
+                      <button className="btn btn-default" onClick={this.captureGeo}>
+                        <span className="glyphicon glyphicon-search"></span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

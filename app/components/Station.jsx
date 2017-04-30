@@ -66,8 +66,8 @@ export default class extends React.Component {
   //
   // in the constructor. Incidentally, this means that write
   // is always bound to this.
-  write = event => this.props.issueRef &&
-    this.props.issueRef.set(event.target.value)
+  // write = event => this.props.issueRef &&
+  //   this.props.issueRef.set(event.target.value)
   generateStation(station) {
     const result = []
     for (var i in station) {
@@ -85,7 +85,6 @@ export default class extends React.Component {
     return result
   }
   generateIssues(returnObj) {
-    console.log('in returnObj', returnObj)
     if (!returnObj) {
       return []
     } else {
@@ -100,7 +99,14 @@ export default class extends React.Component {
   }
   handleClick(e) {
     const newIssue = e.target.value
-    this.setState({newIssue: newIssue})
+    const stationName = Object.keys(this.state.value)[0]
+    console.log('this.state.value', this.state.value)
+    console.log('stationName', stationName)
+    this.props.fireRef.child(stationName).update({
+      status: newIssue
+    })
+    // const currentStatus = this.state.value[stationName].status
+    // this.setState({stationName: ...e.target.value})
     const currentStationId = this.props.routeParams.id
     this.props.issueRef.push({
       issue: newIssue,
@@ -113,7 +119,7 @@ export default class extends React.Component {
     const currentStation = this.generateStation(value)
     const marker = this.generateMarkers(value)
     const issues = this.state.issues
-    console.log('the state in station', this.state.issues)
+    console.log('the state in station', this.state)
     return (<div className="container">
               <div className="row">
                   <h3 className="title nearbyElevators">Elevator Access Near You</h3>
@@ -163,7 +169,7 @@ export default class extends React.Component {
                           {issues && issues.map((issue, idx) =>
                             <tr key={idx}>
                               <td>{new Date(issue.timestamp).toString()}</td>
-                              <td>{issue.toString() === 'true' ? 'Working' : 'Broken'}</td>
+                              <td>{issue.issue.toString() === 'true' ? 'Working' : 'Broken'}</td>
                             </tr>)
                           }
                         </tbody>
