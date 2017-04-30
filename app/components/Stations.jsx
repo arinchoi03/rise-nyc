@@ -15,7 +15,6 @@ export default class extends React.Component {
   componentDidMount() {
     // When the component mounts, start listening to the fireRef
     // we were given.
-    console.log('fireref', this.props.fireRef)
     this.listenTo(this.props.fireRef)
   }
 
@@ -54,12 +53,21 @@ export default class extends React.Component {
     const result = []
     for (var i in stations) {
       const current = stations[i]
-      result.push(<div key={i} className="alert alert-success">
+      if (current.status) {
+        result.push(<div key={i} className="alert alert-success">
                     {current.name}
                     <Link to={`/stations/${current.id}`} className="moreInfo">
                       More Info
                     </Link>
                   </div>)
+      } else {
+        result.push(<div key={i} className="alert alert-danger">
+            {current.name}
+            <Link to={`/stations/${current.id}`} className="moreInfo">
+              More Info
+            </Link>
+          </div>)
+      }
     }
     return result
   }

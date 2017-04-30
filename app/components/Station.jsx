@@ -14,7 +14,7 @@ export default class extends React.Component {
     this.generateStation = this.generateStation.bind(this)
     this.generateMarkers = this.generateMarkers.bind(this)
     this.handleClick = this.handleClick.bind(this)
-    // this.updateLocalState = this.updateLocalState.bind(this)
+    // this.makeIssuesLog = this.makeIssuesLog.bind(this)
   }
   componentDidMount() {
     // When the component mounts, start listening to the fireRef
@@ -49,7 +49,7 @@ export default class extends React.Component {
     const listener = fireRef.orderByChild('id').equalTo(+currentStationId).on('value', snapshot => {
       return this.setState({value: snapshot.val()})
     })
-    const listenerIssue = issueRef.orderByChild('id').equalTo(+currentStationId).on('value', snapshot => {
+    const listenerIssue = issueRef.orderByChild('stationId').equalTo(currentStationId).limitToLast(10).on('value', snapshot => {
       return this.setState({issues: this.generateIssues(snapshot.val())})
     })
     this.unsubscribe = () => {
@@ -83,23 +83,26 @@ export default class extends React.Component {
     }
     return result
   }
-  generateIssues(issues) {
-    if (!issues.log) {
+  generateIssues(returnObj) {
+    console.log('return obj', returnObj)
+    if (!returnObj) {
       return []
     } else {
       const result = []
-      const keyName = Object.keys(issues)[0]
-      for (var i in issues[keyName].log) {
-        const current = issues[keyName].log[i]
-        result.push(current)
+      for (var i in returnObj) {
+        result.push(returnObj[i].issue)
       }
-      return result
+      return result.reverse()
     }
   }
   handleClick(e) {
     const newIssue = e.target.value
-    this.state.issues.push(newIssue)
+    this.setState({newIssue: newIssue})
     const currentStationId = this.props.routeParams.id
+    this.props.issueRef.push({
+      issue: newIssue,
+      stationId: currentStationId
+    }) // this would push a new item at top level
   }
   // updateLocalState(response) {
   //   const issues = this.state.issues
@@ -108,11 +111,23 @@ export default class extends React.Component {
   //     issues: issues
   //   })
   // }
+  // makeIssuesLog(issues) {
+  //   if (issues) {
+  //     issues.map((issue, idx) =>
+  //       <tr key={idx}>
+  //         <td>Date</td>
+  //         <td>{issue.toString() === 'true' ? 'Working' : 'Broken'}</td>
+  //       </tr>)
+  //   } else {
+  //     return <tr><td></td><td></td></tr>
+  //   }
+  // }
   render() {
     const {value} = this.state || {}
     const currentStation = this.generateStation(value)
     const marker = this.generateMarkers(value)
-    // console.log('the state in station', this.state)
+    const issues = this.state.issues
+    console.log('the state in station', this.state.issues)
     return (<div className="container">
               <div className="row">
                   <h3 className="title nearbyElevators">Elevator Access Near You</h3>
@@ -159,6 +174,12 @@ export default class extends React.Component {
                           </tr>
                         </thead>
                         <tbody>
+                          {issues && issues.map((issue, idx) =>
+                            <tr key={idx}>
+                              <td>Date</td>
+                              <td>{issue.toString() === 'true' ? 'Working' : 'Broken'}</td>
+                            </tr>)
+                          }
                         </tbody>
                       </table>
                     </div>

@@ -6,7 +6,7 @@
       "lng" : -73.9969021
     },
     "name" : "14th St & 8th",
-    "status" : "Good",
+    "status" : false,
     "subways" : "A, C, E, L"
   },
   "14th St (Union Sq)" : {
@@ -16,7 +16,7 @@
       "lng" : -73.9911824
     },
     "name" : "14th St (Union Sq)",
-    "status" : "Good",
+    "status" : false,
     "subways" : "L, N, Q, R, W"
   },
   "23rd St" : {
@@ -26,7 +26,7 @@
       "lng" : -73.986502
     },
     "name" : "23rd St",
-    "status" : "Good",
+    "status" : false,
     "subways" : "6"
   },
   "34th St-Herald Square" : {
@@ -36,7 +36,7 @@
       "lng" : -73.9940372
     },
     "name" : "34th St-Herald Square",
-    "status" : "Good",
+    "status" : false,
     "subways" : "B, D, F, M, N, Q, R, W"
   },
   "34th St-Penn Station (1,2,3)" : {
@@ -46,7 +46,7 @@
       "lng" : -73.9929554
     },
     "name" : "34th St-Penn Station (1,2,3)",
-    "status" : "Bad",
+    "status" : true,
     "subways" : "1,2,3"
   },
   "34th St-Penn Station (A,C,E)" : {
@@ -56,7 +56,7 @@
       "lng" : -73.9929554
     },
     "name" : "34th St-Penn Station (A,C,E)",
-    "status" : "Bad",
+    "status" : true,
     "subways" : "A,C,E"
   },
     "34th-Hudson Yards" : {
@@ -66,7 +66,7 @@
       "lng" : -74.0031945
     },
     "name" : "34th St-Hudson Yards",
-    "status" : "Bad",
+    "status" : true,
     "subways" : "7"
   },
     "42 St-Port Authority Bus Terminal" : {
@@ -76,7 +76,7 @@
       "lng" : -73.9930103
     },
     "name" : "42 St-Port Authority Bus Terminal",
-    "status" : "Good",
+    "status" : false,
     "subways" : "A,C,E"
   },
     "Bowling Green" : {
@@ -86,7 +86,7 @@
       "lng" : -74.0158645
     },
     "name" : "Bowling Green",
-    "status" : "Good",
+    "status" : false,
     "subways" : "4,5"
   },
     "Broadway-Lafayette St & Bleeker St" : {
@@ -96,7 +96,7 @@
       "lng" : -73.9976875
     },
     "name" : "Broadway-Lafayette St & Bleeker St",
-    "status" : "Good",
+    "status" : false,
     "subways" : "6,B,D,F,M"
   },
     "Brooklyn Bridge-City Hall" : {
@@ -106,7 +106,7 @@
       "lng" : -74.0070822
     },
     "name" : "Brooklyn Bridge-City Hall",
-    "status" : "Good",
+    "status" : false,
     "subways" : "4,5,6"
   }
 }
