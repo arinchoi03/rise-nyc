@@ -2,17 +2,33 @@ import React from 'react'
 import { Link } from 'react-router'
 // navigator.getGeolocation?
 
-const FrontPage = props => (
+const FrontPage = props => {
+  console.log(props.auth) // attach 'currentAddress' when search button/current loc clicked
+  return (
   <div>
     <header id="top" className="header">
       <div className = "text-vertical-center">
-        <h1 style={{}}>RISE UP</h1>
+        <h1><Link to="/stations">RISE UP</Link></h1>
         <h2>NYC</h2>
         <h4>Find help to get you to elevator access</h4>
-        <h4>Help someone else</h4>
+        <h4>...and help someone else</h4>
+          <div class="col-lg-2">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Enter Address for Nearby Elevator Access" />
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+          <div id="current-location-search">Current Location
+            <button className="btn btn-default">
+              <span className="glyphicon glyphicon-search"></span>
+            </button>
+          </div>
       </div>
     </header>
   </div>
-)
+  )
+}
 
 export default FrontPage

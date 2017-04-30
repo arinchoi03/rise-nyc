@@ -17,6 +17,7 @@ import Stations from './components/Stations'
 import Station from './components/Station'
 
 const seed = require('../seed')
+const seedissues = require('../seedIssues')
 
 // Get the auth API from Firebase.
 const auth = firebase.auth()
@@ -26,6 +27,7 @@ const issueRef = db.ref('issues')
 
 // to seed
 // const fireRef = db.ref('stations').set(seed)
+// const issueRef = db.ref('issues').set(seedissues)
 
 // Ensure that we have (almost) always have a user ID, by creating
 // an anonymous user if nobody is signed in.
@@ -55,21 +57,25 @@ auth.onAuthStateChanged(user => user || auth.signInAnonymously())
 // and whatever children the router gave us.
 const App = ({children}) =>
   <div>
-    <nav className="nav">
-    <h1 className="title"><Link to="/">RISE UP nyc</Link></h1>
-      {/* WhoAmI takes a firebase auth API and renders either a
+    <nav className="navbar navbar-default navbar-static-top" role="navigation">
+      <div className="container">
+      <h1 className="navbar-brand"><Link to="/">RISE UP nyc</Link></h1>
+        {/* WhoAmI takes a firebase auth API and renders either a
           greeting and a logout button, or sign in buttons, depending
           on if anyone's logged in */}
-      {/* <WhoAmI auth={auth}/> */}
+        {/* <WhoAmI auth={auth}/> */}
+      </div>
     </nav>
     {/* Render our children (whatever the router gives us) */}
-    {children && React.cloneElement(children, {fireRef, issueRef})}
+    <div>
+      {children && React.cloneElement(children, {auth, fireRef, issueRef})}
+    </div>
   </div>
 
 render(
   <Router history={browserHistory}>
-    <Route path="/home" component={FrontPage}/>
     <Route path="/" component={App}>
+      <Route path="/home" component={FrontPage}/>
       <IndexRedirect to="/stations"/>
       <Route path="/stations" component={Stations}/>
       <Route path="/stations/:id" component={Station}/>

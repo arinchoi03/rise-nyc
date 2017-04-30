@@ -7,19 +7,22 @@ import React from 'react'
 // what are the props that  I'm passing donw?
 // - onMapClick, onMarkerRightClick(index)
 const InitialMap = withGoogleMap(props => {
-  console.log('props in initialMap', props)
+  // console.log('props in initialMap', props)
   return (
   <GoogleMap
     ref={props.onMapLoad}
-    defaultZoom={13}
+    defaultZoom={16}
     defaultCenter={{ lat: 40.7359002, lng: -73.9911824 }} // input by user at beginning
     onClick={props.onMapClick}
   >
-    {props.markers && props.markers.map((marker, index) => (
+    { Array.isArray(props.markers) ? props.markers && props.markers.map((marker, index) => (
       <Marker
+        key={index}
         position={{lat: marker.lat, lng: marker.lng}}
       />
-    ))}
+    )) : <Marker
+              position={{lat: props.markers.lat, lng: props.markers.lng}}/>
+    }
   </GoogleMap>
   )
 })

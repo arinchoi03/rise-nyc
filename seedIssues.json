@@ -1,123 +1,46 @@
 {
   "14th St" : {
     "id" : 1,
-    "issues" : {
-      "1": {
-        "status": "Bad"
-      },
-      "2": {
-        "status": "Good"
-      }
-    }
+    "issues": {}
   },
   "14th St (Union Sq)" : {
     "id" : 2,
-    "issues" : {
-      "1": {
-        "status": "Bad"
-      },
-      "2": {
-        "status": "Good"
-      }
-    }
+    "issues": {}
   },
   "23rd St" : {
     "id" : 3,
-    "issues" : {
-      "1": {
-        "status": "Bad"
-      },
-      "2": {
-        "status": "Good"
-      }
-    }
+    "issues": {}
   },
   "34th St-Herald Square" : {
     "id" : 4,
-    "issues" : {
-      "1": {
-        "status": "Bad"
-      },
-      "2": {
-        "status": "Good"
-      }
-    }
+    "issues": {}
   },
   "34th St-Penn Station (1,2,3)" : {
     "id" : 5,
-    "issues" : {
-      "1": {
-        "status": "Bad"
-      },
-      "2": {
-        "status": "Good"
-      }
-    }
+    "issues": {}
   },
   "34th St-Penn Station (A,C,E)" : {
     "id" : 6,
-    "issues" : {
-      "1": {
-        "status": "Bad"
-      },
-      "2": {
-        "status": "Good"
-      }
-    }
+    "issues": {}
   },
     "34th-Hudson Yards" : {
     "id" : 7,
-    "issues" : {
-      "1": {
-        "status": "Bad"
-      },
-      "2": {
-        "status": "Good"
-      }
-    }
+    "issues": {}
   },
     "42 St-Port Authority Bus Terminal" : {
     "id" : 8,
-    "issues" : {
-      "1": {
-        "status": "Bad"
-      },
-      "2": {
-        "status": "Good"
-      }
-    }
+    "issues": {}
   },
     "Bowling Green" : {
     "id" : 9,
-    "issues" : {
-      "1": {
-        "status": "Bad"
-      },
-      "2": {
-        "status": "Good"
-      }
-    }
+    "issues": {}
   },
     "Broadway-Lafayette St & Bleeker St" : {
     "id" : 10,
-    "issues" : {
-      "1": {
-        "status": "Bad"
-      },
-      "2": {
-        "status": "Good"
-      }
-    }
+    "issues": {}
   },
     "Brooklyn Bridge-City Hall" : {
     "id" : 11,
-    "issues" : {
-      "1": {
-        "status": "Bad"
-      },
-      "2": {
-        "status": "Good"
-      }
-    }
+    "issues": {}
   }
 }

@@ -1,9 +1,17 @@
-.stationInfo {
+/*.stationInfo {
   width: 45vw;
+}*/
+
+.navbar-default {
+  background-color: #5DE0DC
 }
 
-.nav {
-  background-color: powderblue
+.navbar-default .navbar-brand{
+  color: white
+}
+
+body {
+  background-color: #f8f8f8
 }
 
 h1 {
@@ -16,22 +24,20 @@ h2.lead {
   text-decoration: underline;
 }
 
-.googleMap {
-  height: 400px;
-  width: 400px;
-  display: inline-block;
-  padding: 10px;
+.moreInfo {
+  float: right;
 }
 
-iframe {
-  height: 50vw;
-  width: 50vw;
-}
 
+/*
 .stationList {
   padding: 10px;
   width: 100%;
   display: inline-block;
+}*/
+
+table {
+  width: 100%;
 }
 
 th, td {
@@ -48,9 +54,9 @@ th, td {
 .header {
   display: table;
   position: relative;
-  width: 100%;
-  height: 100%;
-  background: url(../img/bg.jpg) no-repeat center center scroll;
+  width: 100vw;
+  height: 100vh;
+  background: url(manhattan.jpg) no-repeat center center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -61,4 +67,12 @@ th, td {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
+}
+
+.button-row {
+  margin-bottom: 10px;
+}
+
+#current-location-search {
+  padding: 5px;
 }

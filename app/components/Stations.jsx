@@ -54,14 +54,12 @@ export default class extends React.Component {
     const result = []
     for (var i in stations) {
       const current = stations[i]
-      result.push(<tr key={i}>
-                      <td>
-                        <Link to={`/stations/${current.id}`}>
-                          {current.name}
-                        </Link>
-                    </td>
-                    <td>{current.status}</td>
-                  </tr>)
+      result.push(<div key={i} className="alert alert-success">
+                    {current.name}
+                    <Link to={`/stations/${current.id}`} className="moreInfo">
+                      More Info
+                    </Link>
+                  </div>)
     }
     return result
   }
@@ -78,29 +76,31 @@ export default class extends React.Component {
     const markers = this.generateMarkers(value)
     console.log('stations from local', this.state.value)
     // for MapContainer - push in location objects into array to be received as markers
-    return (<div className="stationsView">
+    return (<div className="container">
+            <div className="stationsView row">
               <h3 className="title nearbyElevators">Elevator Access Near You</h3>
-              <div className="rounded stationMap col-md-6">
-                <h2 className="lead">Stations Map</h2>
-                <div id="mapDiv">
-                  <MapContainer markers={markers}/>
+              <div className="rounded stationMap col-lg-6">
+                <div className ="panel panel-default">
+                  <div className="panel-heading">
+                    Stations Map
+                  </div>
+                  <div className="panel-body">
+                    <MapContainer markers={markers}/>
+                  </div>
                 </div>
               </div>
-              <div className="rounded stationInfo col-md-6">
-                <h2 className="lead">Stations List</h2>
-                <table className="table-bordered table-hover stationList">
-                  <thead>
-                    <tr>
-                      <th>Station</th>
-                      <th>Current Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                   {this.generateStations(this.state.value)}
-                  </tbody>
-                </table>
+              <div className="rounded stationInfo col-lg-6">
+                <div className ="panel panel-default">
+                  <div className="panel-heading">
+                    Stations List
+                  </div>
+                  <div className="panel-body">
+                    {(this.generateStations(this.state.value))}
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
     )
   }
 }
