@@ -55,7 +55,7 @@ export default class extends React.Component {
     const result = []
     for (var i in stations) {
       const current = stations[i]
-      if (current.status) {
+      if (current.status === 'true') {
         result.push(<div key={i} className="alert alert-success">
                     {current.name}
                     <Link to={`/stations/${current.id}`} className="moreInfo">
