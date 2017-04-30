@@ -13,6 +13,8 @@ export default class MapContainer extends Component {
             mapElement={
               <div style={{ height: '500px', width: '500px' }} />
             }
-            markers={this.props.markers}/>)
+            markers={this.props.markers}
+            currentPos={this.props.currentPos}
+            />)
   }
 }

@@ -73,11 +73,26 @@ th, td {
   margin-bottom: 10px;
 }
 
-#current-location-search {
-  padding: 5px;
+h1 {
+  font-size: 15em;
 }
 
-.input-group {
-  align-self: center;
-  display: block;
+h4 {
+  margin-top: 20px;
+  color: black
+}
+
+link {
+  text-decoration: none;
+}
+
+.front-page-input {
+  display: inline-block;
+  width: 50%;
+  position: center;
+  margin-bottom: 20px;
+}
+
+#current-location-search {
+  color: gray
 }

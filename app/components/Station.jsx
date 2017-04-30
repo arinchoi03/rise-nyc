@@ -84,7 +84,6 @@ export default class extends React.Component {
     return result
   }
   generateIssues(returnObj) {
-    console.log('return obj', returnObj)
     if (!returnObj) {
       return []
     } else {
@@ -102,26 +101,8 @@ export default class extends React.Component {
     this.props.issueRef.push({
       issue: newIssue,
       stationId: currentStationId
-    }) // this would push a new item at top level
+    }) // should update currentStation status...
   }
-  // updateLocalState(response) {
-  //   const issues = this.state.issues
-  //   issues.push(response)
-  //   this.setState({
-  //     issues: issues
-  //   })
-  // }
-  // makeIssuesLog(issues) {
-  //   if (issues) {
-  //     issues.map((issue, idx) =>
-  //       <tr key={idx}>
-  //         <td>Date</td>
-  //         <td>{issue.toString() === 'true' ? 'Working' : 'Broken'}</td>
-  //       </tr>)
-  //   } else {
-  //     return <tr><td></td><td></td></tr>
-  //   }
-  // }
   render() {
     const {value} = this.state || {}
     const currentStation = this.generateStation(value)

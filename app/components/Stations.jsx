@@ -7,10 +7,12 @@ export default class extends React.Component {
   constructor() {
     super()
     this.state = {
-      value: {}
+      value: {},
+      currentPos: []
     }
     this.generateStations = this.generateStations.bind(this)
     this.generateMarkers = this.generateMarkers.bind(this)
+    this.captureGeo = this.captureGeo.bind(this)
   }
   componentDidMount() {
     // When the component mounts, start listening to the fireRef
@@ -79,21 +81,40 @@ export default class extends React.Component {
     }
     return markers
   }
+  captureGeo() {
+    const geoloc = navigator.geolocation.getCurrentPosition((result) => {
+      this.setState({currentPos: [result.coords.latitude, result.coords.longitude]})
+    })
+  }
   render() {
     const {value} = this.state || {}
     const markers = this.generateMarkers(value)
-    console.log('stations from local', this.state.value)
+    const currentPos = this.state.currentPos
+    console.log('stations from local', this.state)
     // for MapContainer - push in location objects into array to be received as markers
     return (<div className="container">
             <div className="stationsView row">
               <h3 className="title nearbyElevators">Elevator Access Near You</h3>
+                <div>
+                  <div className="input-group front-page-input">
+                    <input type="text" className="form-control" placeholder="Enter Address for Nearby Elevator Access" />
+                    <span className="input-group-btn">
+                      <button className="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+                <div id="current-location-search">Current Location
+                  <button className="btn btn-default" onClick={this.captureGeo}>
+                    <span className="glyphicon glyphicon-search"></span>
+                  </button>
+                </div>
               <div className="rounded stationMap col-lg-6">
                 <div className ="panel panel-default">
                   <div className="panel-heading">
                     Stations Map
                   </div>
                   <div className="panel-body">
-                    <MapContainer markers={markers}/>
+                    <MapContainer currentPos={currentPos} markers={markers}/>
                   </div>
                 </div>
               </div>
