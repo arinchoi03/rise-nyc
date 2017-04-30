@@ -9,11 +9,15 @@ import React from 'react'
 const InitialMap = withGoogleMap(props => {
   // console.log('props in initialMap', props)
   const currentPos = props.currentPos
-  let lat = currentPos[0]
-  let lng = currentPos[1]
-  if (lat || lng === undefined) {
+  console.log(currentPos)
+  let lat, lng
+  if (!currentPos || !currentPos.length) {
     lat = 40.7554778
     lng = -73.981885
+  } else {
+    lat = currentPos[0]
+    lng = currentPos[1]
+    console.log('latitude', lat, 'longitude', lng) // not resetting current loc
   }
   return (
   <GoogleMap

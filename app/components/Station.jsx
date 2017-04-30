@@ -118,7 +118,7 @@ export default class extends React.Component {
                     {currentStation}
                     </div>
                     <div className="panel-body">
-                      <MapContainer markers={marker}/>
+                      <MapContainer markers={marker} currentPos={marker}/>
                     </div>
                   </div>
                 </div>
