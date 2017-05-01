@@ -14,6 +14,7 @@ export default class extends React.Component {
     }
     this.generateStations = this.generateStations.bind(this)
     this.generateMarkers = this.generateMarkers.bind(this)
+    this.filterStations = this.filterStations.bind(this)
     this.captureGeo = this.captureGeo.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
@@ -45,20 +46,23 @@ export default class extends React.Component {
     })
     this.unsubscribe = () => fireRef.off('value', listener)
   }
-  generateStations(stations, filter) {
+  filterStations(stations, filter) {
     let stationsArr = []
     // first convert objects in object to array
     for (var i in stations) {
       stationsArr.push(stations[i])
     }
-    let filteredStations
     // if there is a filter, filter it by stringified subway line and set it to the stations array
     if (filter) {
-      filteredStations = stationsArr.filter((station) => station.subways.includes(filter))
+      const filteredStations = stationsArr.filter((station) => {
+        return station.subways.includes(filter)
+      })
       stationsArr = filteredStations
     }
-
-    // regardless of filter, map over array of stations and push into result array Link values
+    return stationsArr
+  }
+  generateStations(stations, filter) {
+    const stationsArr = this.filterStations(stations, filter)
     const result = []
     stationsArr.map((station) => {
       if (station.status === 'true') {
@@ -77,12 +81,10 @@ export default class extends React.Component {
     })
     return result
   }
-  generateMarkers(stations) {
+  generateMarkers(stations, filter) {
+    const stationsArr = this.filterStations(stations, filter)
     const markers = []
-    for (var i in stations) {
-      const current = stations[i]
-      markers.push(current.location)
-    }
+    stationsArr.map((station) => markers.push(station.location))
     return markers
   }
   captureGeo() {
@@ -94,8 +96,8 @@ export default class extends React.Component {
     this.setState({filter: ev.target.value.toString()})
   }
   render() {
-    const {value} = this.state || {}
-    const markers = this.generateMarkers(value)
+    const {value, filter} = this.state || {}
+    const markers = this.generateMarkers(value, filter)
     const currentPos = this.state.currentPos
     return (<div className="container">
             <div className="stationsView row">
@@ -125,7 +127,7 @@ export default class extends React.Component {
                         <span className="glyphicon glyphicon-search"></span>
                       </button>
                       <div className="input-group front-page-input">
-                        <form onSubmit={this.setFilter}>
+                        <form>
                           <label>Select Your Subway Line</label>
                           <select onChange={this.handleChange}>
                             <option></option>
@@ -159,7 +161,7 @@ export default class extends React.Component {
                   </div>
                 </div>
               </div>
-              <StationList stations={this.generateStations(this.state.value, this.state.filter)} />
+              <StationList stations={this.generateStations(value, filter)} />
             </div>
           </div>
     )

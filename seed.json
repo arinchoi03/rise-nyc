@@ -76,11 +76,151 @@
       "lng" : -73.9930103
     },
     "name" : "42 St-Port Authority Bus Terminal",
-    "status" : false,
+    "status" : "false",
     "subways" : "A,C,E"
   },
-  "Bowling Green" : {
+  "47-50 Sts-Rockefeller Ctr" : {
     "id" : 9,
+    "location" : {
+      "lat" : 40.7578276,
+      "lng" : -73.9817907
+    },
+    "name" : "47-50 Sts-Rockefeller Ctr",
+    "status" : "false",
+    "subways" : "B,D,F,M"
+  },
+  "49 St" : {
+    "id" : 10,
+    "location" : {
+      "lat" : 40.7603778,
+      "lng" : -73.9857363
+    },
+    "name" : "49 St (northbound only)",
+    "status" : "false",
+    "subways" : "N, Q, R, W"
+  },
+  "50 St" : {
+    "id" : 11,
+    "location" : {
+      "lat" : 40.7625088,
+      "lng" : -73.9884355
+    },
+    "name" : "50 St (southbound only)",
+    "status" : "false",
+    "subways" : "C,E"
+  },
+  "51 St" : {
+    "id" : 12,
+    "location" : {
+      "lat" : 40.7571534,
+      "lng" : -73.9743385
+    },
+    "name" : "51 St",
+    "status" : "true",
+    "subways" : "5"
+  },
+  "66 St-Lincoln Center" : {
+    "id" : 13,
+    "location" : {
+      "lat" : 40.7735914,
+      "lng" : -73.9842059
+    },
+    "name" : "66 St-Lincoln Center",
+    "status" : "true",
+    "subways" : "1"
+  },
+  "72 St " : {
+    "id" : 14,
+    "location" : {
+      "lat" : 40.7717571,
+      "lng" : -73.9811061
+    },
+    "name" : "72 St",
+    "status" : "false",
+    "subways" : "1,2,3"
+  },
+  "86 St" : {
+    "id" : 15,
+    "location" : {
+      "lat" : 40.7780975,
+      "lng" : -73.9549599
+    },
+    "name" : "86 St",
+    "status" : "false",
+    "subways" : "Q"
+  },
+  "96 St (1,2,3)" : {
+    "id" : 16,
+    "location" : {
+      "lat" : 40.7914909,
+      "lng" : -73.9694213
+    },
+    "name" : "96 St (1,2,3)",
+    "status" : "true",
+    "subways" : "1,2,3"
+  },
+  "96 St (Q)" : {
+    "id" : 17,
+    "location" : {
+      "lat" : 40.7837493,
+      "lng" : -73.9536794
+    },
+    "name" : "96 St (Q)",
+    "status" : "false",
+    "subways" : "Q"
+  },
+  "125 St (4,5,6)" : {
+    "id" : 18,
+    "location" : {
+      "lat" : 40.8051477,
+      "lng" : -73.9434534
+    },
+    "name" : "125 St (4,5,6)",
+    "status" : "true",
+    "subways" : "4,5,6"
+  },
+  "125 St (A,B,C,D)" : {
+    "id" : 19,
+    "location" : {
+      "lat" : 40.8113356,
+      "lng" : -73.9557915
+    },
+    "name" : "125 St (A,B,C,D)",
+    "status" : "false",
+    "subways" : "A,B,C,D"
+  },
+  "135 St" : {
+    "id" : 20,
+    "location" : {
+      "lat" : 40.8130948,
+      "lng" : -73.9473244
+    },
+    "name" : "135 St",
+    "status" : "true",
+    "subways" : "2,3"
+  },
+  "168 St" : {
+    "id" : 21,
+    "location" : {
+      "lat" : 40.8407275,
+      "lng" : -73.9416293
+    },
+    "name" : "168 St (A,C)",
+    "status" : "false",
+    "subways" : "A,C"
+  },
+  "175 St" : {
+    "id" : 22,
+    "location" : {
+      "lat" : 40.8479541,
+      "lng" : -73.9404707
+    },
+    "name" : "175 St",
+    "status" : "true",
+    "subways" : "A"
+  },
+  "Bowling Green" : {
+    "id" : 23,
     "location" : {
       "lat" : 40.7046,
       "lng" : -74.0135
@@ -90,33 +230,43 @@
     "subways" : "4,5"
   },
   "Broadway-Lafayette St & Bleeker St" : {
-    "id" : 10,
+    "id" : 24,
     "location" : {
       "lat" : 40.725323,
       "lng" : -73.9976875
     },
     "name" : "Broadway-Lafayette St & Bleeker St",
-    "status" : false,
+    "status" : "false",
     "subways" : "6,B,D,F,M"
   },
   "Brooklyn Bridge-City Hall" : {
-    "id" : 11,
+    "id" : 25,
     "location" : {
       "lat" : 40.712769,
       "lng" : -74.0070822
     },
     "name" : "Brooklyn Bridge-City Hall",
-    "status" : "true",
+    "status" : "false",
     "subways" : "4,5,6"
   },
+  "Canal St" : {
+    "id" : 26,
+    "location" : {
+      "lat" : 40.7189609,
+      "lng" : -74.003475
+    },
+    "name" : "Canal St",
+    "status" : "true",
+    "subways" : "6"
+  },
   "South Ferry" : {
-    "id" : 12,
+    "id" : 27,
     "location" : {
       "lat" : 40.7017358,
       "lng" : -74.0129
     },
     "name" : "South Ferry",
-    "status" : false,
+    "status" : "false",
     "subways" : "1"
   }
 }
