@@ -4,6 +4,9 @@ import { Link } from 'react-router'
 import MapContainer from './MapContainer'
 import StationList from './StationList'
 
+// google.maps.geometry.spherical.computeDistanceBetween(a,b)
+// to filter by nearest location upon clicking current location / typing in address
+
 export default class extends React.Component {
   constructor() {
     super()
@@ -62,7 +65,11 @@ export default class extends React.Component {
     return stationsArr
   }
   generateStations(stations, filter) {
+    // filter if needed
     const stationsArr = this.filterStations(stations, filter)
+
+    // generate Link/divs for each station depending on their status
+    // status is string - click at station component's e.target.value is string :(
     const result = []
     stationsArr.map((station) => {
       if (station.status === 'true') {
@@ -82,23 +89,27 @@ export default class extends React.Component {
     return result
   }
   generateMarkers(stations, filter) {
+    // filter if needed
     const stationsArr = this.filterStations(stations, filter)
+
+    // create array of markers at each station (ex: {lat, long})
     const markers = []
     stationsArr.map((station) => markers.push(station.location))
     return markers
   }
   captureGeo() {
+    // gets current location (it's slow though...) and sets current position (centers map)
     const geoloc = navigator.geolocation.getCurrentPosition((result) => {
       this.setState({currentPos: [result.coords.latitude, result.coords.longitude]})
     })
   }
   handleChange(ev) {
+    // listens to changes in <select> and sets filter value of state
     this.setState({filter: ev.target.value.toString()})
   }
   render() {
-    const {value, filter} = this.state || {}
+    const {value, filter, currentPos} = this.state || {}
     const markers = this.generateMarkers(value, filter)
-    const currentPos = this.state.currentPos
     return (<div className="container">
             <div className="stationsView row">
               <h3 className="title nearbyElevators">Elevator Access Near You</h3>
