@@ -83,7 +83,7 @@
     "id" : 9,
     "location" : {
       "lat" : 40.704926,
-      "lng" : -74.0158645
+      "lng" : -74.0106942
     },
     "name" : "Bowling Green",
     "status" : false,
@@ -108,5 +108,15 @@
     "name" : "Brooklyn Bridge-City Hall",
     "status" : false,
     "subways" : "4,5,6"
+  },
+    "South Ferry" : {
+    "id" : 12,
+    "location" : {
+      "lat" : 40.7057358,
+      "lng" : -74.0122446
+    },
+    "name" : "South Ferry",
+    "status" : false,
+    "subways" : "1"
   }
 }

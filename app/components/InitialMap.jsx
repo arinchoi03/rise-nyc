@@ -24,7 +24,7 @@ const InitialMap = withGoogleMap(props => {
     defaultZoom={16}
     defaultCenter={{ lat, lng }} // input by user at beginning
     onClick={props.onMapClick}
-    center={{lat: lat, lng: lng}}
+    center={{lat: lat, lng: lng}} // if current location entered, re-adjusts
   >
     { Array.isArray(props.markers) ? props.markers && props.markers.map((marker, index) => (
       <Marker
