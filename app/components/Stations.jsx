@@ -2,17 +2,20 @@ import React from 'react'
 import { Link } from 'react-router'
 
 import MapContainer from './MapContainer'
+import StationList from './StationList'
 
 export default class extends React.Component {
   constructor() {
     super()
     this.state = {
       value: {},
-      currentPos: []
+      currentPos: [],
+      filter: ''
     }
     this.generateStations = this.generateStations.bind(this)
     this.generateMarkers = this.generateMarkers.bind(this)
     this.captureGeo = this.captureGeo.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
   componentDidMount() {
     // When the component mounts, start listening to the fireRef
@@ -42,26 +45,36 @@ export default class extends React.Component {
     })
     this.unsubscribe = () => fireRef.off('value', listener)
   }
-  generateStations(stations) {
-    const result = []
+  generateStations(stations, filter) {
+    let stationsArr = []
+    // first convert objects in object to array
     for (var i in stations) {
-      const current = stations[i]
-      if (current.status === 'true') {
-        result.push(<div key={i} className="alert alert-success">
-                    {current.name}
-                    <Link to={`/stations/${current.id}`} className="moreInfo">
-                      More Info
-                    </Link>
-                  </div>)
-      } else {
-        result.push(<div key={i} className="alert alert-danger">
-            {current.name}
-            <Link to={`/stations/${current.id}`} className="moreInfo">
-              More Info
-            </Link>
-          </div>)
-      }
+      stationsArr.push(stations[i])
     }
+    let filteredStations
+    // if there is a filter, filter it by stringified subway line and set it to the stations array
+    if (filter) {
+      filteredStations = stationsArr.filter((station) => station.subways.includes(filter))
+      stationsArr = filteredStations
+    }
+
+    // regardless of filter, map over array of stations and push into result array Link values
+    const result = []
+    stationsArr.map((station) => {
+      if (station.status === 'true') {
+        result.push(<Link to={`/stations/${station.id}`} key={station.name} className="moreInfo">
+                      <div className="alert alert-success">
+                        {station.name}
+                      </div>
+                    </Link>)
+      } else {
+        result.push(<Link to={`/stations/${station.id}`} key={station.name} className="moreInfo">
+                      <div className="alert alert-danger">
+                        {station.name}
+                      </div>
+                    </Link>)
+      }
+    })
     return result
   }
   generateMarkers(stations) {
@@ -77,11 +90,13 @@ export default class extends React.Component {
       this.setState({currentPos: [result.coords.latitude, result.coords.longitude]})
     })
   }
+  handleChange(ev) {
+    this.setState({filter: ev.target.value.toString()})
+  }
   render() {
     const {value} = this.state || {}
     const markers = this.generateMarkers(value)
     const currentPos = this.state.currentPos
-    // for MapContainer - push in location objects into array to be received as markers
     return (<div className="container">
             <div className="stationsView row">
               <h3 className="title nearbyElevators">Elevator Access Near You</h3>
@@ -110,8 +125,10 @@ export default class extends React.Component {
                         <span className="glyphicon glyphicon-search"></span>
                       </button>
                       <div className="input-group front-page-input">
-                        <label>Select Your Subway Line</label>
-                          <select>
+                        <form onSubmit={this.setFilter}>
+                          <label>Select Your Subway Line</label>
+                          <select onChange={this.handleChange}>
+                            <option></option>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -133,26 +150,16 @@ export default class extends React.Component {
                             <option>Q</option>
                             <option>R</option>
                             <option>S</option>
+                            <option>W</option>
                             <option>Z</option>
                           </select>
-                        <button className="btn btn-default" onClick={this.captureGeo}>
-                          Filter
-                        </button>
+                        </form>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="rounded stationInfo col-lg-6">
-                <div className ="panel panel-default">
-                  <div className="panel-heading">
-                    Stations List
-                  </div>
-                  <div className="panel-body">
-                    {(this.generateStations(this.state.value))}
-                  </div>
-                </div>
-              </div>
+              <StationList stations={this.generateStations(this.state.value, this.state.filter)} />
             </div>
           </div>
     )
