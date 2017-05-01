@@ -12,6 +12,7 @@ import firebase from 'APP/fire'
 import Scratchpad from 'APP/demos/scratchpad'
 import Demos from 'APP/demos'
 
+import About from './components/About'
 import FrontPage from './components/FrontPage'
 import Stations from './components/Stations'
 import Station from './components/Station'
@@ -64,6 +65,7 @@ const App = ({children}) =>
               greeting and a logout button, or sign in buttons, depending
               on if anyone's logged in */}
             {/* <WhoAmI auth={auth}/> */}
+          <h2 className="navbar-brand"><Link to="about">About</Link></h2>
           </div>
         </nav>
         {/* Render our children (whatever the router gives us) */}
@@ -76,6 +78,7 @@ render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRedirect to="/home"/>
+      <Route path="/about" component={About}/>
       <Route path="/home" component={FrontPage}/>
       <Route path="/stations" component={Stations}/>
       <Route path="/stations/:id" component={Station}/>

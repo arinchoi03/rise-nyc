@@ -93,3 +93,7 @@ link {
 #current-location-search {
   color: gray
 }
+
+.about-page {
+  align-content: center;
+}
