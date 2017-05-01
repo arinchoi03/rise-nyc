@@ -127,8 +127,8 @@ export default class extends React.Component {
                     Search New Location
                   </div>
                   <div className="panel-body">
-                    <div className="input-group front-page-input">
-                      <input type="text" className="form-control" placeholder="Enter Address for Nearby Elevator Access" />
+                    <div className="input-group station-page-input">
+                      <input type="text" className="form-control input-box" placeholder="Enter Address for Nearby Elevator Access" />
                       <span className="input-group-btn">
                         <button className="btn btn-default" type="button">Go!</button>
                       </span>

@@ -13,7 +13,7 @@ const FrontPage = (props) => {
           <h4>...and help someone else</h4>
             <div>
               <div className="input-group front-page-input">
-                <input type="text" className="form-control" placeholder="Enter Address for Nearby Elevator Access" />
+                <input type="text" className="form-control front-page-box" placeholder="Enter Address for Nearby Elevator Access" />
                   <button className="btn btn-default" type="button">Search</button>
               </div>
             </div>
