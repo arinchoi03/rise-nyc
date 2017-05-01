@@ -44,7 +44,7 @@ export default class extends React.Component {
     // If we're already listening to a ref, stop listening there.
     if (this.unsubscribe) this.unsubscribe()
     // Whenever our ref's value changes, set {value} on our state.
-    const listener = fireRef.on('value', snapshot => {
+    const listener = fireRef.orderByChild('id').on('value', snapshot => {
       this.setState({value: snapshot.val()})
     })
     this.unsubscribe = () => fireRef.off('value', listener)
