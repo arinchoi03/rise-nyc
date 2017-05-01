@@ -134,7 +134,6 @@ export default class extends React.Component {
   render() {
     const {value, filter, currentPos} = this.state || {}
     const markers = this.generateMarkers(value, filter)
-    console.log(this.state.currentPos)
     return (<div className="container">
             <div className="stationsView row">
               <h3 className="title nearbyElevators">Elevator Access Near You</h3>
