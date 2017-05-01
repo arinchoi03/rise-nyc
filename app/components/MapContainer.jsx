@@ -21,6 +21,8 @@ export default class MapContainer extends Component {
     })
   }
   render() {
+    console.log('mapcontainer markers', this.state.markers)
+    console.log('mapcontainer center', this.state.center)
     return (<InitialMap
             containerElement={
                 <div style={{ height: '100%', width: '100%' }} />

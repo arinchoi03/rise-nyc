@@ -115,6 +115,7 @@ export default class extends React.Component {
     const currentStation = this.generateStation(value)
     const marker = this.generateMarkers(value)
     const currentLoc = this.generateCurrentLoc(value)
+    console.log('marker', marker, 'currentLoc', currentLoc)
     const issues = this.state.issues
     return (<div className="container">
             <Link to="/stations">Back to Stations</Link>
@@ -126,7 +127,7 @@ export default class extends React.Component {
                     {currentStation}
                     </div>
                     <div className="panel-body">
-                      <MapContainer markers={marker} center={currentLoc}/>
+                      <MapContainer markers={marker} currentPos={currentLoc}/>
                     </div>
                   </div>
                 </div>
