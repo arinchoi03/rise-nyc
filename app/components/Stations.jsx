@@ -18,6 +18,7 @@ export default class extends React.Component {
     // When the component mounts, start listening to the fireRef
     // we were given.
     this.listenTo(this.props.fireRef)
+    console.log('props', this.props)
   }
 
   componentWillUnmount() {
@@ -41,16 +42,6 @@ export default class extends React.Component {
     })
     this.unsubscribe = () => fireRef.off('value', listener)
   }
-
-  // Write is defined using the class property syntax.
-  // This is roughly equivalent to saying,
-  //
-  //    this.write = event => (etc...)
-  //
-  // in the constructor. Incidentally, this means that write
-  // is always bound to this.
-  // write = event => this.props.fireRef &&
-  //   this.props.fireRef.set(event.target.value)
   generateStations(stations) {
     const result = []
     for (var i in stations) {
@@ -137,6 +128,3 @@ export default class extends React.Component {
     )
   }
 }
-
-                // <iframe className="googleMap" src="https://www.google.com/maps/embed/v1/view?key=AIzaSyCdwbqBA0j9ZOuwa0GqvVXVgL7Mdbu0mHI&zoom=10&center=40.7128%2C-74.0059">
-                // </iframe>

@@ -15,6 +15,7 @@ export default class extends React.Component {
     this.generateStation = this.generateStation.bind(this)
     this.generateMarkers = this.generateMarkers.bind(this)
     this.generateIssues = this.generateIssues.bind(this)
+    this.generateCurrentLoc = this.generateCurrentLoc.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
   componentDidMount() {
@@ -70,6 +71,16 @@ export default class extends React.Component {
     }
     return result
   }
+  generateCurrentLoc(station) {
+    const result = []
+    for (var i in station) {
+      const lat = station[i].location.lat
+      const lng = station[i].location.lng
+      result.push(lat)
+      result.push(lng)
+    }
+    return result
+  }
   generateIssues(returnObj) {
     // if no issues for this station, just return empty array
     if (!returnObj) {
@@ -103,8 +114,8 @@ export default class extends React.Component {
     const {value} = this.state || {}
     const currentStation = this.generateStation(value)
     const marker = this.generateMarkers(value)
+    const currentLoc = this.generateCurrentLoc(value)
     const issues = this.state.issues
-    console.log('the state in station', this.state)
     return (<div className="container">
               <div className="row">
                   <h3 className="title nearbyElevators">Elevator Access Near You</h3>
@@ -114,7 +125,7 @@ export default class extends React.Component {
                     {currentStation}
                     </div>
                     <div className="panel-body">
-                      <MapContainer markers={marker} currentPos={marker}/>
+                      <MapContainer markers={marker} currentPos={currentLoc}/>
                     </div>
                   </div>
                 </div>

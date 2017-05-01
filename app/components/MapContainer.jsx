@@ -11,23 +11,15 @@ export default class MapContainer extends Component {
       markers: []
     }
   }
-  // componentDidMount() {
-  //   this.setState({
-  //     currentPos: this.props.currentPos,
-  //     markers: this.props.markers
-  //   })
-  // }
   componentWillReceiveProps(incoming, outgoing) {
     // When the props sent to us by our parent component change,
     // start listening to the new firebase reference.
-    console.log(incoming)
     this.setState({
       currentPos: incoming.currentPos, // returns an array
       markers: incoming.markers
     })
   }
   render() {
-    console.log('local state in map container', this.state)
     return (<InitialMap
             containerElement={
                 <div style={{ height: '100%', width: '100%' }} />

@@ -56,21 +56,21 @@ auth.onAuthStateChanged(user => user || auth.signInAnonymously())
 // Our root App component just renders a little frame with a nav
 // and whatever children the router gave us.
 const App = ({children}) =>
-  <div>
-    <nav className="navbar navbar-default navbar-static-top" role="navigation">
-      <div className="container">
-      <h1 className="navbar-brand"><Link to="/">RISE UP nyc</Link></h1>
-        {/* WhoAmI takes a firebase auth API and renders either a
-          greeting and a logout button, or sign in buttons, depending
-          on if anyone's logged in */}
-        {/* <WhoAmI auth={auth}/> */}
+      <div>
+        <nav className="navbar navbar-default navbar-static-top" role="navigation">
+          <div className="container">
+          <h1 className="navbar-brand"><Link to="/">RISE UP nyc</Link></h1>
+            {/* WhoAmI takes a firebase auth API and renders either a
+              greeting and a logout button, or sign in buttons, depending
+              on if anyone's logged in */}
+            {/* <WhoAmI auth={auth}/> */}
+          </div>
+        </nav>
+        {/* Render our children (whatever the router gives us) */}
+        <div>
+          {children && React.cloneElement(children, {fireRef, issueRef})}
+        </div>
       </div>
-    </nav>
-    {/* Render our children (whatever the router gives us) */}
-    <div>
-      {children && React.cloneElement(children, {auth, fireRef, issueRef})}
-    </div>
-  </div>
 
 render(
   <Router history={browserHistory}>
