@@ -3,7 +3,6 @@ import { Link } from 'react-router'
 // navigator.getGeolocation?
 
 const StationList = (props) => {
-  console.log(props)
   return (<div className="rounded stationInfo col-lg-6">
             <div className ="panel panel-default">
               <div className="panel-heading">

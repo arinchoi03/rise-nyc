@@ -1,5 +1,8 @@
+/* global google */
+
 import React from 'react'
 import { Link } from 'react-router'
+import axios from 'axios'
 
 import MapContainer from './MapContainer'
 import StationList from './StationList'
@@ -13,19 +16,21 @@ export default class extends React.Component {
     this.state = {
       value: {},
       currentPos: [],
-      filter: ''
+      filter: '',
+      search: ''
     }
     this.generateStations = this.generateStations.bind(this)
     this.generateMarkers = this.generateMarkers.bind(this)
     this.filterStations = this.filterStations.bind(this)
     this.captureGeo = this.captureGeo.bind(this)
+    this.captureGeoInput = this.captureGeoInput.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleSearchChange = this.handleSearchChange.bind(this)
   }
   componentDidMount() {
     // When the component mounts, start listening to the fireRef
     // we were given.
     this.listenTo(this.props.fireRef)
-    console.log('props', this.props)
   }
 
   componentWillUnmount() {
@@ -103,6 +108,25 @@ export default class extends React.Component {
       this.setState({currentPos: [result.coords.latitude, result.coords.longitude]})
     })
   }
+  captureGeoInput(ev) {
+    ev.preventDefault()
+    const result = []
+    // gets current location (it's slow though...) and sets current position (centers map)
+    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.search}&key=AIzaSyC3rTt3torLEDvb9GNfh1LWZkDTK8GYUBk`)
+    .then((res) => {
+      const addressLat = res.data.results[0].geometry.location.lat
+      result.push(addressLat)
+      const addressLng = res.data.results[0].geometry.location.lng
+      result.push(addressLng)
+      return result
+    })
+    .then(result => this.setState({currentPos: result}))
+    .catch(err => console.log(err))
+  }
+  handleSearchChange(ev) {
+    // listens to changes in <select> and sets filter value of state
+    this.setState({search: ev.target.value})
+  }
   handleChange(ev) {
     // listens to changes in <select> and sets filter value of state
     this.setState({filter: ev.target.value.toString()})
@@ -110,6 +134,7 @@ export default class extends React.Component {
   render() {
     const {value, filter, currentPos} = this.state || {}
     const markers = this.generateMarkers(value, filter)
+    console.log(this.state.currentPos)
     return (<div className="container">
             <div className="stationsView row">
               <h3 className="title nearbyElevators">Elevator Access Near You</h3>
@@ -128,10 +153,16 @@ export default class extends React.Component {
                   </div>
                   <div className="panel-body">
                     <div className="input-group station-page-input">
-                      <input type="text" className="form-control input-box" placeholder="Enter Address for Nearby Elevator Access" />
-                      <span className="input-group-btn">
-                        <button className="btn btn-default" type="button">Go!</button>
-                      </span>
+                      <form onSubmit={this.captureGeoInput}>
+                        <input
+                          type="text"
+                          className="form-control input-box"
+                          placeholder="Enter Address for Nearby Elevator Access"
+                          onChange={this.handleSearchChange}/>
+                        <span className="input-group-btn">
+                          <button className="btn btn-default" type="submit">Go!</button>
+                        </span>
+                      </form>
                     </div>
                     <div id="current-location-search">Current Location
                       <button className="btn btn-default" onClick={this.captureGeo}>

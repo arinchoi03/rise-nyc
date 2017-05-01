@@ -6,8 +6,11 @@
   background-color: #5DE0DC
 }
 
-.navbar-default .navbar-brand{
-  color: white
+.navbar-default{
+  color: white;
+}
+.navbar-brand {
+  font-family: 'Arvo'
 }
 
 body {
@@ -83,12 +86,14 @@ link {
   width: 100%;
 }
 
-.input-box {
+.form-control.inputbox {
   width: 70%;
+  /*display: inline-block;*/
 }
 
 .input-group-btn{
   width:10%;
+  /*display: inline-block;*/
 }
 
 .front-page-input {
@@ -98,7 +103,7 @@ link {
   margin: 0 auto;
 }
 .station-page-input {
-  width: 100%;
+  width: 80%;
 }
 #current-location-search {
   color: gray
