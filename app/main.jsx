@@ -76,10 +76,10 @@ const App = ({children}) =>
 
 render(
   <Router history={browserHistory}>
+    <Route path="/home" component={FrontPage}/>
     <Route path="/" component={App}>
       <IndexRedirect to="/home"/>
       <Route path="/about" component={About}/>
-      <Route path="/home" component={FrontPage}/>
       <Route path="/stations" component={Stations}/>
       <Route path="/stations/:id" component={Station}/>
     </Route>

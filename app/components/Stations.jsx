@@ -121,6 +121,10 @@ export default class extends React.Component {
       return result
     })
     .then(result => this.setState({currentPos: result}))
+    .then(() => {
+      console.log('state', this.state, 'event', ev)
+      ev.target.reset()
+    })
     .catch(err => console.log(err))
   }
   handleSearchChange(ev) {
@@ -134,6 +138,7 @@ export default class extends React.Component {
   render() {
     const {value, filter, currentPos} = this.state || {}
     const markers = this.generateMarkers(value, filter)
+    console.log(this.state)
     return (<div className="container">
             <div className="stationsView row">
               <h3 className="title nearbyElevators">Elevator Access Near You</h3>
@@ -157,9 +162,9 @@ export default class extends React.Component {
                           type="text"
                           className="form-control input-box"
                           placeholder="Enter Address for Nearby Elevator Access"
-                          onChange={this.handleSearchChange}/>
+                          onChange={this.handleSearchChange} />
                         <span className="input-group-btn">
-                          <button className="btn btn-default" type="submit">Go!</button>
+                          <button className="btn btn-default" type="submit">Search</button>
                         </span>
                       </form>
                     </div>

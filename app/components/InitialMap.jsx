@@ -16,7 +16,7 @@ const InitialMap = withGoogleMap(props => {
   } else {
     lat = center[0]
     lng = center[1]
-    console.log('latitude', lat, 'longitude', lng) // not resetting current loc
+    // console.log('latitude', lat, 'longitude', lng) // not resetting current loc
   }
   return (
   <GoogleMap
