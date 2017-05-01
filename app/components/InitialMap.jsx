@@ -9,9 +9,8 @@ import React from 'react'
 const InitialMap = withGoogleMap(props => {
   // console.log('props in initialMap', props)
   const currentPos = props.currentPos
-  console.log(currentPos)
   let lat, lng
-  if (!currentPos || !currentPos.length) {
+  if (!currentPos || !currentPos.length) { // default center
     lat = 40.7554778
     lng = -73.981885
   } else {
@@ -23,8 +22,9 @@ const InitialMap = withGoogleMap(props => {
   <GoogleMap
     ref={props.onMapLoad}
     defaultZoom={16}
-    defaultCenter={{ lat: lat, lng: lng }} // input by user at beginning
+    defaultCenter={{ lat, lng }} // input by user at beginning
     onClick={props.onMapClick}
+    center={{lat: lat, lng: lng}}
   >
     { Array.isArray(props.markers) ? props.markers && props.markers.map((marker, index) => (
       <Marker

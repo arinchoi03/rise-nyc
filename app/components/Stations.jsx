@@ -37,7 +37,6 @@ export default class extends React.Component {
     if (this.unsubscribe) this.unsubscribe()
     // Whenever our ref's value changes, set {value} on our state.
     const listener = fireRef.on('value', snapshot => {
-      console.log('here?')
       this.setState({value: snapshot.val()})
     })
     this.unsubscribe = () => fireRef.off('value', listener)
@@ -91,7 +90,6 @@ export default class extends React.Component {
     const {value} = this.state || {}
     const markers = this.generateMarkers(value)
     const currentPos = this.state.currentPos
-    console.log('stations from local', this.state)
     // for MapContainer - push in location objects into array to be received as markers
     return (<div className="container">
             <div className="stationsView row">
