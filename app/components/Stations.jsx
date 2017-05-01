@@ -109,6 +109,36 @@ export default class extends React.Component {
                       <button className="btn btn-default" onClick={this.captureGeo}>
                         <span className="glyphicon glyphicon-search"></span>
                       </button>
+                      <div className="input-group front-page-input">
+                        <label>Select Your Subway Line</label>
+                          <select>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
+                            <option>D</option>
+                            <option>E</option>
+                            <option>F</option>
+                            <option>G</option>
+                            <option>J</option>
+                            <option>L</option>
+                            <option>M</option>
+                            <option>N</option>
+                            <option>Q</option>
+                            <option>R</option>
+                            <option>S</option>
+                            <option>Z</option>
+                          </select>
+                        <button className="btn btn-default" onClick={this.captureGeo}>
+                          Filter
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>

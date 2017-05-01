@@ -53,7 +53,7 @@ th, td {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: url(manhattan.jpg) no-repeat center center scroll;
+  background: url(manhattan.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -71,7 +71,7 @@ th, td {
 }
 
 h1 {
-  font-size: 15em;
+  font-size: 13em;
 }
 
 h4 {

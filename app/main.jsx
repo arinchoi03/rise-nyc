@@ -75,8 +75,8 @@ const App = ({children}) =>
 render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
+      <IndexRedirect to="/home"/>
       <Route path="/home" component={FrontPage}/>
-      <IndexRedirect to="/stations"/>
       <Route path="/stations" component={Stations}/>
       <Route path="/stations/:id" component={Station}/>
     </Route>

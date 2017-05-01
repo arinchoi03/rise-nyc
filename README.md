@@ -23,3 +23,19 @@ It loades only the last 10 statuses and the timestamp when the status was logged
 
 # API used
 I used [react-google-maps](https://github.com/tomchentw/react-google-maps), [firebase](https://firebase.google.com) for database storage, and react!
+
+# things to look at
+
+Front page - just a dummy at this time
+* would like to make 'current location' & 'address search' work
+
+Stations Page
+* shows current status of all elevator subway stops (that are in db)
+* current location button works! re-centers map upon click
+* show two panes --> keep on on stations page, one pane for single station view
+
+Station Page
+* map centers to current station
+* station name updates
+* station issues log - click button to update log (LOOK AT THE STATIONS PAGE! immediate update)
+* shows only the 10 latest logs
