@@ -117,6 +117,7 @@ export default class extends React.Component {
     const currentLoc = this.generateCurrentLoc(value)
     const issues = this.state.issues
     return (<div className="container">
+            <Link to="/stations">Back to Stations</Link>
               <div className="row">
                   <h3 className="title nearbyElevators">Elevator Access Near You</h3>
                   <div className="col-lg-6">
