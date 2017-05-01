@@ -8,14 +8,14 @@ import React from 'react'
 // - onMapClick, onMarkerRightClick(index)
 const InitialMap = withGoogleMap(props => {
   // console.log('props in initialMap', props)
-  const currentPos = props.currentPos
+  const center = props.center
   let lat, lng
-  if (!currentPos || !currentPos.length) { // default center
+  if (!center || !center.length) { // default center
     lat = 40.7554778
     lng = -73.981885
   } else {
-    lat = currentPos[0]
-    lng = currentPos[1]
+    lat = center[0]
+    lng = center[1]
     console.log('latitude', lat, 'longitude', lng) // not resetting current loc
   }
   return (
