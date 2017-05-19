@@ -1,5 +1,7 @@
 # RISE UP nyc
 
+Visit the app @ https://rise-nyc.firebaseapp.com/
+
 Have you ever needed elevator access at a NYC subway stop? Did you get off at the station and found that the elevator is actually not working? How great would it be if you can check the status of the elevator for the stop you want to get on/off the subway from?
 
 This is an app that allows crowd-sourcing of current status of elevators in NYC.
