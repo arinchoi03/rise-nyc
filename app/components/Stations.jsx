@@ -6,8 +6,8 @@ import axios from 'axios'
 
 import MapContainer from './MapContainer'
 import StationList from './StationList'
+import StationsFilter from './StationsFilter'
 
-const nycStations = ['', '1', '2', '3', '4', '5', '6', '7', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'J', 'L', 'M', 'N', 'Q', 'R', 'S', 'W', 'Z']
 // google.maps.geometry.spherical.computeDistanceBetween(a,b)
 // to filter by nearest location upon clicking current location / typing in address
 
@@ -139,7 +139,7 @@ export default class extends React.Component {
   render() {
     const {value, filter, currentPos} = this.state || {}
     const markers = this.generateMarkers(value, filter)
-    console.log(this.state)
+    // console.log(this.state)
     return (<div className="container">
             <div className="stationsView row">
               <h3 className="title nearbyElevators">Elevator Access Near You</h3>
@@ -156,38 +156,12 @@ export default class extends React.Component {
                   </div>
                 </div>
                 {/* Map location search*/}
-                <div className="panel panel-default">
-                  <div className="panel-heading">
-                    Search New Location
-                  </div>
-                  <div className="panel-body">
-                    <div className="input-group station-page-input">
-                      <form onSubmit={this.captureGeoInput}>
-                        <input
-                          type="text"
-                          className="form-control input-box"
-                          placeholder="Enter Address for Nearby Elevator Access"
-                          onChange={this.handleSearchChange} />
-                        <span className="input-group-btn">
-                          <button className="btn btn-default" type="submit">Search</button>
-                        </span>
-                      </form>
-                    </div>
-                    <div id="current-location-search">Current Location
-                      <button className="btn btn-default" onClick={this.captureGeo}>
-                        <span className="glyphicon glyphicon-search"></span>
-                      </button>
-                      <div className="input-group front-page-input">
-                        <form>
-                          <label>Select Your Subway Line</label>
-                          <select onChange={this.handleChange}>
-                            { nycStations.map(station => (<option key={station}>{station}</option>)) }
-                          </select>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <StationsFilter
+                  captureGeoInput={this.captureGeoInput}
+                  captureGeo={this.captureGeo}
+                  handleSearchChange={this.handleSearchChange}
+                  handleChange={this.handleChange}
+                />
               </div>
               <StationList stations={this.generateStations(value, filter)} />
             </div>
