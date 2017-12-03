@@ -18,8 +18,8 @@ The map shows all the nearby stations (at this moment shows all the stations in 
 
 # Station
 
-This page allows you to update the current status of the elvator at that station.
-It loades only the last 10 statuses and the timestamp when the status was logged.
+This page allows you to update the current status of the elevator at that station.
+It loads only the last 10 statuses and the timestamp when the status was logged.
 
 # API used
 I used [react-google-maps](https://github.com/tomchentw/react-google-maps), [firebase](https://firebase.google.com) for database storage, and react!
