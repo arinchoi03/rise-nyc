@@ -7,6 +7,7 @@ import axios from 'axios'
 import MapContainer from './MapContainer'
 import StationList from './StationList'
 
+const nycStations = ['', '1', '2', '3', '4', '5', '6', '7', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'J', 'L', 'M', 'N', 'Q', 'R', 'S', 'W', 'Z']
 // google.maps.geometry.spherical.computeDistanceBetween(a,b)
 // to filter by nearest location upon clicking current location / typing in address
 
@@ -142,7 +143,10 @@ export default class extends React.Component {
     return (<div className="container">
             <div className="stationsView row">
               <h3 className="title nearbyElevators">Elevator Access Near You</h3>
+
+              {/* Map div*/}
               <div className="rounded stationMap col-lg-6">
+                {/* Map itself*/}
                 <div className ="panel panel-default">
                   <div className="panel-heading">
                     Stations Map
@@ -151,6 +155,7 @@ export default class extends React.Component {
                     <MapContainer currentPos={currentPos} markers={markers}/>
                   </div>
                 </div>
+                {/* Map location search*/}
                 <div className="panel panel-default">
                   <div className="panel-heading">
                     Search New Location
@@ -176,30 +181,7 @@ export default class extends React.Component {
                         <form>
                           <label>Select Your Subway Line</label>
                           <select onChange={this.handleChange}>
-                            <option></option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>A</option>
-                            <option>B</option>
-                            <option>C</option>
-                            <option>D</option>
-                            <option>E</option>
-                            <option>F</option>
-                            <option>G</option>
-                            <option>J</option>
-                            <option>L</option>
-                            <option>M</option>
-                            <option>N</option>
-                            <option>Q</option>
-                            <option>R</option>
-                            <option>S</option>
-                            <option>W</option>
-                            <option>Z</option>
+                            { nycStations.map(station => (<option key={station}>{station}</option>)) }
                           </select>
                         </form>
                       </div>
