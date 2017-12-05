@@ -6,7 +6,7 @@ import axios from 'axios'
 
 import MapContainer from './MapContainer'
 import StationList from './StationList'
-import StationsFilter from './StationsFilter'
+import FilterPanel from './FilterPanel'
 
 // google.maps.geometry.spherical.computeDistanceBetween(a,b)
 // to filter by nearest location upon clicking current location / typing in address
@@ -156,7 +156,7 @@ export default class extends React.Component {
                   </div>
                 </div>
                 {/* Map location search*/}
-                <StationsFilter
+                <FilterPanel
                   captureGeoInput={this.captureGeoInput}
                   captureGeo={this.captureGeo}
                   handleSearchChange={this.handleSearchChange}
