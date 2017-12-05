@@ -129,7 +129,7 @@ export default class extends React.Component {
     .catch(err => console.log(err))
   }
   handleSearchChange(ev) {
-    // listens to changes in <select> and sets filter value of state
+    // listens to changes in <input> and sets search value of state
     this.setState({search: ev.target.value})
   }
   handleChange(ev) {
