@@ -140,32 +140,33 @@ export default class extends React.Component {
     const {value, filter, currentPos} = this.state || {}
     const markers = this.generateMarkers(value, filter)
     // console.log(this.state)
-    return (<div className="container">
-            <div className="stationsView row">
-              <h3 className="title nearbyElevators">Elevator Access Near You</h3>
+    return (
+      <div className="container">
+        <h3 className="title nearbyElevators">Elevator Access Near You</h3>
 
-              {/* Map div*/}
-              <div className="rounded stationMap col-lg-6">
-                {/* Map itself*/}
-                <div className ="panel panel-default">
-                  <div className="panel-heading">
-                    Stations Map
-                  </div>
-                  <div className="panel-body">
-                    <MapContainer currentPos={currentPos} markers={markers}/>
-                  </div>
-                </div>
-                {/* Map location search*/}
-                <FilterPanel
-                  captureGeoInput={this.captureGeoInput}
-                  captureGeo={this.captureGeo}
-                  handleSearchChange={this.handleSearchChange}
-                  handleChange={this.handleChange}
-                />
+        <div className="stationsView row">
+          {/* Map div*/}
+          <div className="rounded stationMap col-md-6 col-sm-12">
+            {/* Map itself*/}
+            <div className ="panel panel-default">
+              <div className="panel-heading">
+                Stations Map
               </div>
-              <StationList stations={this.generateStations(value, filter)} />
+              <div className="panel-body">
+                <MapContainer currentPos={currentPos} markers={markers}/>
+              </div>
             </div>
+            {/* Map location search*/}
+            <FilterPanel
+              captureGeoInput={this.captureGeoInput}
+              captureGeo={this.captureGeo}
+              handleSearchChange={this.handleSearchChange}
+              handleChange={this.handleChange}
+            />
           </div>
+          <StationList stations={this.generateStations(value, filter)} />
+        </div>
+      </div>
     )
   }
 }

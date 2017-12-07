@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router'
 import firebase from 'APP/fire'
 
-import MapContainer from './MapContainer'
+import StationIssues from './StationIssues'
+import StationMap from './StationMap'
 
 export default class extends React.Component {
   constructor(props) {
@@ -12,10 +13,10 @@ export default class extends React.Component {
       issues: [],
       newIssue: null
     }
-    this.generateStation = this.generateStation.bind(this)
-    this.generateMarkers = this.generateMarkers.bind(this)
+    // this.generateStation = this.generateStation.bind(this)
+    // this.generateMarkers = this.generateMarkers.bind(this)
     this.generateIssues = this.generateIssues.bind(this)
-    this.generateCurrentLoc = this.generateCurrentLoc.bind(this)
+    // this.generateCurrentLoc = this.generateCurrentLoc.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
   componentDidMount() {
@@ -53,34 +54,6 @@ export default class extends React.Component {
       issueRef.off('value', listenerIssue)
     }
   }
-  // generates station info (name at this point)
-  generateStation(station) {
-    const result = []
-    for (var i in station) {
-      const current = station[i]
-      result.push(<div><h2>{current.name}</h2></div>)
-    }
-    return result
-  }
-  // generates marker for this station
-  generateMarkers(station) {
-    const result = []
-    for (var i in station) {
-      const current = station[i]
-      result.push(current.location)
-    }
-    return result
-  }
-  generateCurrentLoc(station) {
-    const result = []
-    for (var i in station) {
-      const lat = station[i].location.lat
-      const lng = station[i].location.lng
-      result.push(lat)
-      result.push(lng)
-    }
-    return result
-  }
   generateIssues(returnObj) {
     // if no issues for this station, just return empty array
     if (!returnObj) {
@@ -112,26 +85,20 @@ export default class extends React.Component {
   }
   render() {
     const {value} = this.state || {}
-    const currentStation = this.generateStation(value)
-    const marker = this.generateMarkers(value)
-    const currentLoc = this.generateCurrentLoc(value)
-    console.log('marker', marker, 'currentLoc', currentLoc)
+    // const currentStation = this.generateStation(value)
+    // const marker = this.generateMarkers(value)
+    // const currentLoc = this.generateCurrentLoc(value)
     const issues = this.state.issues
+
+    // console.log('marker', marker, 'currentLoc', currentLoc)
+
     return (<div className="container">
             <Link to="/stations">Back to Stations</Link>
               <div className="row">
-                  <h3 className="title nearbyElevators">Elevator Access Near You</h3>
-                  <div className="col-lg-6">
-                  <div className="panel panel-default">
-                    <div className="panel-heading">
-                    {currentStation}
-                    </div>
-                    <div className="panel-body">
-                      <MapContainer markers={marker} currentPos={currentLoc}/>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-6">
+                <StationMap
+                  value={value}
+                />
+                <div className="col-md-6 col-sm-12">
                   <div><label>Report the Current Status</label></div>
                   <div className="row button-row">
                     <div className="col-lg-6">
@@ -151,30 +118,9 @@ export default class extends React.Component {
                       </button>
                     </div>
                   </div>
-                  <div className="panel panel-default">
-                    <div className="panel-heading">
-                      Issues Log
-                    </div>
-                    <div className="panel-body">
-                      <table className="table-bordered table-hover stationList">
-                        <thead>
-                          <tr>
-                            <th>Date Reported</th>
-                            <th>Status</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {issues && issues.map((issue, idx) => (
-                            <tr key={idx}>
-                              <td>{new Date(issue.timestamp).toString()}</td>
-                              <td>{issue.issue === 'true' ? 'Working' : 'Broken'}</td>
-                            </tr>)
-                            )
-                          }
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+                  <StationIssues
+                   issues={issues}
+                  />
                 </div>
               </div>
             </div>
