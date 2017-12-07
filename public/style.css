@@ -2,7 +2,8 @@
   color: white;
 }
 .navbar-brand {
-  font-family: 'Arvo'
+  font-family: 'Arvo';
+  font-size: 20px;
 }
 
 body {
@@ -86,6 +87,10 @@ link {
   width: 100%;
 }
 
+.input-box {
+  width: 300px !important;
+}
+
 .form-control.inputbox {
   width: 70%;
   display: inline-block;
@@ -108,7 +113,7 @@ link {
 
 .issues-log {
   width: 100%;
-  margin-top: 15px;
+  margin: 15px 0 0 0;
 }
 #current-location-search {
   color: gray
@@ -116,4 +121,8 @@ link {
 
 .about-page {
   align-content: center;
+}
+
+.btn-success, .btn-danger {
+  font-size: 15px;
 }
