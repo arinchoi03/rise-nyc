@@ -1,11 +1,3 @@
-/*.stationInfo {
-  width: 45vw;
-}*/
-
-.navbar-default {
-  background-color: #5DE0DC
-}
-
 .navbar-default{
   color: white;
 }
@@ -23,13 +15,21 @@ h1 {
   margin-bottom: 0px;
 }
 
+h1 > a {
+  color: #1F9BCF
+}
+
 h2.lead {
   text-decoration: underline;
 }
 
 table {
   width: 100%;
-  font-size: 20px;
+  font-size: 15px;
+}
+
+.current-log {
+  width: 100%;
 }
 
 thead, tbody {
@@ -88,12 +88,12 @@ link {
 
 .form-control.inputbox {
   width: 70%;
-  /*display: inline-block;*/
+  display: inline-block;
 }
 
 .input-group-btn{
   width:10%;
-  /*display: inline-block;*/
+  display: inline-block;
 }
 
 .front-page-input {
@@ -104,6 +104,11 @@ link {
 }
 .station-page-input {
   width: 80%;
+}
+
+.issues-log {
+  width: 100%;
+  margin-top: 15px;
 }
 #current-location-search {
   color: gray
