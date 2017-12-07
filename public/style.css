@@ -88,7 +88,8 @@ link {
 }
 
 .input-box {
-  width: 300px !important;
+  width: 350px !important;
+  overflow: hidden;
 }
 
 .form-control.inputbox {
@@ -102,21 +103,23 @@ link {
 }
 
 .front-page-input {
-  width: 50vw;
-  margin-bottom: 20px;
+  padding-top: 15px;
   display: block;
   margin: 0 auto;
 }
+
+.panel-heading {
+  margin-top: 15px;
+}
+
 .station-page-input {
   width: 80%;
+  margin: 15px 0;
 }
 
 .issues-log {
   width: 100%;
   margin: 15px 0 0 0;
-}
-#current-location-search {
-  color: gray
 }
 
 .about-page {

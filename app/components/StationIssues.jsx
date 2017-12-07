@@ -6,7 +6,7 @@ const StationIssues = (props) => {
     <div className="row col-md-12 issues-log">
       <div className="panel panel-default">
         <div className="panel-heading">
-             Issues Log
+          <h5>Issues Log</h5>
         </div>
         <div className="panel-body">
           <table className="table-bordered table-hover station-list">

@@ -13,7 +13,7 @@ const nycStations = ['', '1', '2', '3', '4', '5', '6', '7', 'A', 'B', 'C', 'D', 
 const FilterPanel = (props) => {
     return (<div className="panel panel-default">
                   <div className="panel-heading">
-                    Search New Location
+                    <h5>Search A New Location</h5>
                   </div>
                   <div className="panel-body">
                     <AddressFilter

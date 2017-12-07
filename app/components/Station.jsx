@@ -99,7 +99,7 @@ export default class extends React.Component {
                   value={value}
                 />
                 <div className="col-md-6 col-sm-12">
-                  <div><label>Report the Current Status</label></div>
+                  <div><h5>Report the Current Status</h5></div>
                   <div className="row button-row">
                     <div className="col-lg-6">
                       <button

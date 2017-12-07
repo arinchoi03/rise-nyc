@@ -1,7 +1,8 @@
 import React from 'react'
 
 const AddressFilter = (props) => {
-  return (
+  return (<div>
+    <div> Search by Address </div>
           <div className="input-group station-page-input">
             <form onSubmit={props.captureGeoInput}>
               <input
@@ -14,6 +15,7 @@ const AddressFilter = (props) => {
               </span>
             </form>
           </div>
+        </div>
     )
 }
 

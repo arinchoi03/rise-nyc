@@ -40,7 +40,7 @@ const StationMap = (props) => {
     <div className="col-md-6 col-sm-12">
       <div className="panel panel-default current-log">
         <div className="panel-heading">
-          {generateStation(value)}
+          <h5>{generateStation(value)}</h5>
         </div>
         <div className="panel-body">
           <MapContainer markers={generateMarkers(value)} currentPos={generateCurrentLoc(value)}/>

@@ -150,7 +150,7 @@ export default class extends React.Component {
             {/* Map itself*/}
             <div className ="panel panel-default">
               <div className="panel-heading">
-                Stations Map
+                <h5>Stations Map</h5>
               </div>
               <div className="panel-body">
                 <MapContainer currentPos={currentPos} markers={markers}/>

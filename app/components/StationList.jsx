@@ -7,7 +7,7 @@ const StationList = (props) => {
     <div className="rounded stationInfo col-md-6 col-sm-12">
       <div className ="panel panel-default">
         <div className="panel-heading">
-          Stations List
+          <h5>Stations List</h5>
         </div>
         <div className="panel-body">
           {props.stations.map(station => {
